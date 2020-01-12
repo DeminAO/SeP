@@ -121,7 +121,7 @@ namespace PropositionalLogic
 			{
 				WriteInfoToConsole("Имя предиката не должно быть путым");
 			}
-			else if (Predicates.ContainsAtName(predicateName))
+			else if (!Predicates.ContainsAtName(predicateName))
 			{
 				WriteInfoToConsole("Предикат не существует");
 			}
