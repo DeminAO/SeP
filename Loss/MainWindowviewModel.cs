@@ -239,6 +239,23 @@ namespace Loss
 
 		private void OnAddNewStatementCommand()
 		{
+			if 
+				(
+					!NewStatement.Predicates.Any()
+					||
+					NewStatement.Predicates
+						.Any(x => 
+							x.Parent == null
+							||
+							x.Arguments.Count != x.Parent.ArgumentsCount
+						)
+					|| 
+					NewStatement.Result.Parent == null
+					||
+					NewStatement.Result.Arguments.Count != NewStatement.Result.Parent.ArgumentsCount
+
+				) return;
+
 			Statements.Add(NewStatement);
 			NewStatement = new Models.Statement();
 		}
