@@ -88,7 +88,9 @@ namespace Loss
 			AddFactAtStatementCommand = new DelegateCommand(OnAddFactAtStatementCommand);
 			AddNewStatementCommand = new DelegateCommand(OnAddNewStatementCommand);
 
+#if DEBUG
 			Init();
+#endif
 		}
 
 		private void Init()
