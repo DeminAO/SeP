@@ -1,4 +1,5 @@
-﻿using Loss.Helpers;
+﻿using CudaLybrary;
+using Loss.Helpers;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;

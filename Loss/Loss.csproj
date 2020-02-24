@@ -116,5 +116,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CUDAFY\CUDAFY.csproj">
+      <Project>{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}</Project>
+      <Name>CUDAFY</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

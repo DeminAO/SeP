@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropositionalLogic", "propo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loss", "Loss\Loss.csproj", "{BCD3227C-EB5E-4B05-A84E-A31AD68D665D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CUDAFY", "CUDAFY\CUDAFY.csproj", "{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BCD3227C-EB5E-4B05-A84E-A31AD68D665D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCD3227C-EB5E-4B05-A84E-A31AD68D665D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCD3227C-EB5E-4B05-A84E-A31AD68D665D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BE6053-10B1-4789-A0FC-2AA16CDBDC34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
