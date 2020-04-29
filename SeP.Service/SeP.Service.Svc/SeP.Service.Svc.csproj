@@ -12,4 +12,8 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.24.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SeP.Service.DataContext\SeP.Service.DataContext.csproj" />
+  </ItemGroup>
+
 </Project>

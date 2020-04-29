@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using SeP.Service.DataContext;
 
 namespace SeP.Service.Svc
 {
@@ -15,14 +17,18 @@ namespace SeP.Service.Svc
 			log = logger;
 		}
 
-		public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+		public async override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
 		{
 			log.LogDebug("SayHello invoked on server.");
 
-			return Task.FromResult(new HelloReply
-			{
-				Message = "Hello, " + request.Name
-			});
+			using var ctx = new Context();
+			var user = await ctx.Users.FirstOrDefaultAsync(x => x.Id != Guid.Empty);
+
+			return
+				new HelloReply
+				{
+					Message = $"Hello, {request.Name} {user?.Id}"
+				};
 		}
 	}
 }
