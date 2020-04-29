@@ -1,0 +1,22 @@
+﻿using Prism.Ioc;
+using Prism.Modularity;
+using SeP.Client.Infrastructure.Constants;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SeP.Client.Correspondences
+{
+	public class CorrespondencesModule : IModule
+	{
+		public void OnInitialized(IContainerProvider containerProvider)
+		{
+			// throw new NotImplementedException();
+		}
+
+		public void RegisterTypes(IContainerRegistry container)
+		{
+			container.RegisterForNavigation<Views.Correspondences>(ViewNames.Correspondences);
+		}
+	}
+}
