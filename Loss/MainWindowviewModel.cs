@@ -67,6 +67,13 @@ namespace Loss
 			get => facts;
 			set => SetProperty(ref facts, value);
 		}
+		
+		private ObservableCollection<Models.Fact> addedFacts;
+		public ObservableCollection<Models.Fact> AddedFacts
+		{
+			get => addedFacts;
+			set => SetProperty(ref addedFacts, value);
+		}
 
 		private ObservableCollection<Models.Statement> statements;
 		public ObservableCollection<Models.Statement> Statements
@@ -91,6 +98,7 @@ namespace Loss
 
 #if DEBUG
 			Init();
+
 #endif
 		}
 
@@ -189,7 +197,91 @@ namespace Loss
 
 		private void OnStartCommand()
 		{
-			
+			bool wasChanged = true;
+
+			while (wasChanged)
+			{
+				wasChanged = false;
+
+				foreach (Models.Statement st in Statements)
+				{
+					// аргументы высказывания. Так же - заголовок таблицы
+					List<string> argsSt = st.Predicates.SelectMany(x => x.Arguments).ToList();
+
+					//foreach (Models.Fact pr in st.Predicates)
+					//{
+					//	string arg1 = pr.Arg1;
+					//	string arg2 = pr.Arg2;
+
+					//	if (!argsSt.Contains(arg1)) argsSt.Add(arg1);
+					//	if (!argsSt.Contains(arg2)) argsSt.Add(arg2);
+					//}
+
+
+
+					List<List<string>> tbl = new List<List<string>>();
+					foreach (Models.Fact p in st.Predicates)
+					{
+
+						List<Models.Fact> lstFacts = Facts.Copy(p.Parent.Name);
+						List<List<string>> strFacts = lstFacts.ToListArgs();
+						if (tbl.Count == 0)
+						{
+							tbl = strFacts;
+							continue;
+						}
+						else
+						{
+							List<List<string>> tbl0 = new List<List<string>>();
+							foreach (List<string> row1 in tbl)
+							{
+								foreach (Models.Fact row2 in lstFacts)
+								{
+
+									List<String> tmp = new List<string>();
+									tmp.AddRange(row1);
+
+									int indArg = argsSt.IndexOf(p.Arg1);
+									if (indArg < row1.Count)
+										if (row1[indArg] != row2.Arg1) continue;
+
+									if (indArg >= row1.Count)
+										tmp.Add(row2.Arg1);
+
+									indArg = argsSt.IndexOf(p.Arg2);
+									if (indArg < row1.Count)
+										if (row1[indArg] != row2.Arg2) continue;
+
+									if (indArg >= row1.Count)
+										tmp.Add(row2.Arg2);
+
+									if (!tbl0.Contains(tmp))
+									{
+										tbl0.Add(tmp);
+									}
+								}
+							}
+							tbl = tbl0;
+						}
+
+					}
+
+					foreach (List<string> row in tbl)
+					{
+						int indResArg1 = argsSt.IndexOf(st.Result.Arg1);
+						int indResArg2 = argsSt.IndexOf(st.Result.Arg2);
+						Models.Fact factNew = new Models.Fact (st.Result.Name, row[indResArg1], row[indResArg2]);
+
+						if (!Facts.ContainsAtAllProp(factNew))
+						{
+							Facts.Add(factNew);
+							AddedFacts.Add(factNew);
+							wasChanged = true;
+
+						}
+					}
+				}
+			}
 		}
 
 		private void OnAddPredicateCommand()

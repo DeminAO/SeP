@@ -18,5 +18,10 @@ namespace Loss.Models
 			get => argumentsCount;
 			set => SetProperty(ref argumentsCount, value);
 		}
+
+		public override string ToString()
+		{
+			return string.Format("{0}({1})", Name, ArgumentsCount);
+		}
 	}
 }
