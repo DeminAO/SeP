@@ -11,5 +11,8 @@ namespace SeP.Service.DataContext.Contracts
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public Guid Id { get; set; }
+		public string Login { get; set; }
+		public string Password { get; set; }
+		public string Initials { get; set; }
 	}
 }
