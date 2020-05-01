@@ -6,7 +6,7 @@ namespace SeP.Service.DataContext
 	public class Context : DbContext
 	{
 		public DbSet<User> Users { get; set; }
-
+		
 		public Context() : base()
 		{
 			// Database.EnsureCreated();

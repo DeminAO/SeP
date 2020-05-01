@@ -25,7 +25,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeP.Core", "SeP.Core", "{3A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Core.JsonService", "SeP.Core\SeP.Core.JsonService\SeP.Core.JsonService.csproj", "{4725483F-2E7A-4E00-9828-AFBA8D77E892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeP.Core.Helpers", "SeP.Core\SeP.Core.Helpers\SeP.Core.Helpers.csproj", "{5C517742-7F63-4FF1-954C-E69E3FDA197C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Core.Helpers", "SeP.Core\SeP.Core.Helpers\SeP.Core.Helpers.csproj", "{5C517742-7F63-4FF1-954C-E69E3FDA197C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Proto", "Proto", "{6A9F15D0-31BF-4CBE-8D0F-A3602D12DA9C}"
+	ProjectSection(SolutionItems) = preProject
+		Proto\greet.proto = Proto\greet.proto
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +88,7 @@ Global
 		{1EF0EC1D-B4A4-47F3-95C7-5EAF81337AD7} = {C33E7813-8E34-4D03-9671-2BF1AF72BA26}
 		{4725483F-2E7A-4E00-9828-AFBA8D77E892} = {3A77A618-7175-41EE-B776-76A144133E20}
 		{5C517742-7F63-4FF1-954C-E69E3FDA197C} = {3A77A618-7175-41EE-B776-76A144133E20}
+		{6A9F15D0-31BF-4CBE-8D0F-A3602D12DA9C} = {3A77A618-7175-41EE-B776-76A144133E20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE565373-FDBE-4EB4-911A-1EA312014ECA}

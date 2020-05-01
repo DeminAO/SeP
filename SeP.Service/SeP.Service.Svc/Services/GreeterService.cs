@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeP.Core.Proto;
 using Grpc.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -30,5 +31,18 @@ namespace SeP.Service.Svc
 					Message = $"Hello, {request.Name} {user?.Id}"
 				};
 		}
+
+		//public override Task<GoodByeReply> SayGoodBye(HelloRequest request, ServerCallContext context)
+		//{
+		//	return Task.Run(() =>
+		//	{
+		//		var result = new GoodByeReply();
+
+		//		result.Results.AddRange(new List<string>(){ "", "" });
+
+		//		return result;
+		//	});
+			
+		//}
 	}
 }
