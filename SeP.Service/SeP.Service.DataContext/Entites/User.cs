@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace SeP.Service.DataContext.Contracts
+namespace SeP.Service.DataContext.Entities
 {
 	public class User
 	{

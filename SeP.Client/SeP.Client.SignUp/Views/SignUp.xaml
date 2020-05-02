@@ -7,7 +7,27 @@
 			 prism:ViewModelLocator.AutoWireViewModel="True"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="450" d:DesignWidth="800">
-	<Grid>
-		<TextBlock Text="{Binding Test}"/>
-	</Grid>
+
+
+    <StackPanel>
+        <TextBlock Text="Инициалы"/>
+        <TextBox Text="{Binding Initials}"/>
+
+        <TextBlock Text="Логин"/>
+        <TextBox Text="{Binding Login}"/>
+
+        <TextBlock Text="Пароль"/>
+        <TextBox Text="{Binding Password}"/>
+
+        <TextBlock Text="Повторите пароль"/>
+        <TextBox Text="{Binding ConfirmPassword}"/>
+
+        <Button Content="Вход" Command="{Binding LogInCommand}"/>
+
+        <TextBlock Text="Регистрацич">
+            <Hyperlink Command="{Binding NavigateToSignUpCommand}"/>
+        </TextBlock>
+
+    </StackPanel>
+
 </UserControl>

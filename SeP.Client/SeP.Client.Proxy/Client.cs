@@ -5,16 +5,24 @@ using SeP.Core.Proto;
 namespace SeP.Client.Proxy
 {
 	public class Client
-	{
-        public async Task<string> SayHelloAsync(string name)
+    {
+        private Greeter.GreeterClient _client;
+
+        public Client()
         {
-            // The port number(5001) must match the port of the gRPC server.
             using var channel = GrpcChannel.ForAddress("https://localhost:5001");
 
-            var client = new Greeter.GreeterClient(channel);
-            var result = await client.SayHelloAsync(new HelloRequest { Name = name });
-            
-            return result.Message;
+            _client = new Greeter.GreeterClient(channel);
         }
+
+        public async Task<HelloReply> SayHelloAsync(HelloRequest request)
+            => await _client.SayHelloAsync(request);
+
+        public async Task<ReplingDataBase> SignInAsync(SignInRequest request)
+            => await _client.SignInAsync(request);
+        
+        public async Task<SignUpReplingData> SignUpAsync(SignUpRequest request)
+            => await _client.SignUpAsync(request);
+
     }
 }

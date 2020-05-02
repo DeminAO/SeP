@@ -8,8 +8,29 @@
 			 mc:Ignorable="d" 
 			 d:DesignHeight="450" d:DesignWidth="800">
 
-	<StackPanel>
-		<TextBox Text="{Binding Name}"/>
-		<Button Content="Log In" Command="{Binding LogInCommand}"/>
-	</StackPanel>
+	<Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Логин" Width="100"/>
+        <TextBox Grid.Row="1" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+
+        <TextBlock Grid.Row="2" Text="Пароль" Width="100"/>
+        <TextBox Grid.Row="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+
+        <Button Grid.Row="4" Content="Вход" Command="{Binding LogInCommand}" Width="100"/>
+
+        <TextBlock Grid.Row="5" Text="Регистрацич" Width="100">
+			<Hyperlink Command="{Binding NavigateToSignUpCommand}"/>
+		</TextBlock>
+		
+	</Grid>
 </UserControl>
