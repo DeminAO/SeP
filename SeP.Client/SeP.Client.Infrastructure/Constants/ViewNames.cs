@@ -4,5 +4,6 @@
 	{
 		public const string Auth = nameof(Auth);
 		public const string Correspondences = nameof(Correspondences);
+		public const string SignUp = nameof(SignUp);
 	}
 }

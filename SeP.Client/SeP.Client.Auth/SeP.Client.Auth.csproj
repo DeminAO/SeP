@@ -11,10 +11,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
+    <ProjectReference Include="..\SeP.Client.Proxy\SeP.Client.Proxy.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)SeP.Client.Correspondences.dll&quot; &quot;$(SolutionDir)Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)Sep.Client.Auth.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y" />
   </Target>
 
 </Project>
