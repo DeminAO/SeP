@@ -2,9 +2,9 @@
 {
 	public static class ViewNames
 	{
+		public const string Shell = nameof(Shell);
 		public const string Auth = nameof(Auth);
 		public const string Correspondences = nameof(Correspondences);
 		public const string SignUp = nameof(SignUp);
-		public const string SignIn = nameof(SignIn);
 	}
 }

@@ -21,5 +21,6 @@ namespace SeP.Client.Infrastructure.Base
 		public Func<T, bool> HasErrorFunc;
 
 		public bool HasError => HasErrorFunc(Property);
+
 	}
 }

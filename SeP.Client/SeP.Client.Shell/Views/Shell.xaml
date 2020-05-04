@@ -3,8 +3,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:local="clr-namespace:SeP.Client.Shell.Views"
-		mc:Ignorable="d"
+        mc:Ignorable="d"
 		xmlns:prism="http://prismlibrary.com/" 
 		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 		prism:ViewModelLocator.AutoWireViewModel="True"
@@ -16,16 +15,22 @@
 		</i:EventTrigger>
 	</i:Interaction.Triggers>
 
-	<Grid>
+    <Window.Resources>
+        <Style TargetType="ContentControl">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+	
+    <Grid>
 
 		<Grid.RowDefinitions>
-			<RowDefinition Height="50"/>
-			<RowDefinition Height="150"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="250"/>
-			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="0.2*"/>
+			<ColumnDefinition Width="0.8*"/>
 		</Grid.ColumnDefinitions>
 
 		<ContentControl Grid.Column="0" prism:RegionManager.RegionName="LeftRegion"/>

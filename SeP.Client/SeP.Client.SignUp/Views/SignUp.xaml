@@ -22,10 +22,10 @@
         <TextBlock Text="Повторите пароль"/>
         <TextBox Text="{Binding ConfirmPassword}"/>
 
-        <Button Content="Вход" Command="{Binding LogInCommand}"/>
+        <Button Content="Вход" Command="{Binding SignUpCommand}"/>
 
-        <TextBlock Text="Регистрацич">
-            <Hyperlink Command="{Binding NavigateToSignUpCommand}"/>
+        <TextBlock>
+            <Hyperlink Command="{Binding NavigateToLogInCommand}">Авторизацич</Hyperlink>
         </TextBlock>
 
     </StackPanel>

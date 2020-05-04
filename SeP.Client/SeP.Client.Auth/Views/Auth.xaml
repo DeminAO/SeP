@@ -20,16 +20,16 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Логин" Width="100"/>
-        <TextBox Grid.Row="1" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+        <TextBlock Grid.Row="0" Text="Логин"/>
+        <TextBox Grid.Row="1" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Grid.Row="2" Text="Пароль" Width="100"/>
-        <TextBox Grid.Row="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+        <TextBlock Grid.Row="2" Text="Пароль"/>
+        <TextBox Grid.Row="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Grid.Row="4" Content="Вход" Command="{Binding LogInCommand}" Width="100"/>
+        <Button Grid.Row="4" Content="Вход" Command="{Binding LogInCommand}"/>
 
-        <TextBlock Grid.Row="5" Text="Регистрацич" Width="100">
-			<Hyperlink Command="{Binding NavigateToSignUpCommand}"/>
+        <TextBlock Grid.Row="5">
+			<Hyperlink Command="{Binding NavigateToSignUpCommand}">Регистрацич</Hyperlink>
 		</TextBlock>
 		
 	</Grid>

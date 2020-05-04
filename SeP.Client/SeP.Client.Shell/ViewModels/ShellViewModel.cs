@@ -21,6 +21,8 @@ namespace SeP.Client.Shell.ViewModels
 
 		public ShellViewModel()
 		{
+			ViewName.Property = ViewNames.Shell;
+
 			LoadedCommand = new DelegateCommand(OnLoadedCommand);
 		}
 

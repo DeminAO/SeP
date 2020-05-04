@@ -75,7 +75,7 @@ namespace SeP.Client.SignUp.ViewModels
 					return;
 				}
 
-				RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.SignIn);
+				RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.Auth);
 			}
 			catch (Exception e)
 			{
@@ -85,7 +85,8 @@ namespace SeP.Client.SignUp.ViewModels
 
 		private void OnNavigateToLogInCommand()
 		{
-			RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.SignIn);
+			RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.Auth);
+			
 		}
 
 	}

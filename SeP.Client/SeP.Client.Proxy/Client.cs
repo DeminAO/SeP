@@ -4,7 +4,7 @@ using SeP.Core.Proto;
 
 namespace SeP.Client.Proxy
 {
-	public class Client
+    public class Client
     {
         private Greeter.GreeterClient _client;
 
@@ -16,13 +16,30 @@ namespace SeP.Client.Proxy
         }
 
         public async Task<HelloReply> SayHelloAsync(HelloRequest request)
-            => await _client.SayHelloAsync(request);
+        {
+            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+
+            _client = new Greeter.GreeterClient(channel);
+
+            return await _client.SayHelloAsync(request);
+        }
 
         public async Task<ReplingDataBase> SignInAsync(SignInRequest request)
-            => await _client.SignInAsync(request);
-        
-        public async Task<SignUpReplingData> SignUpAsync(SignUpRequest request)
-            => await _client.SignUpAsync(request);
+        {
+            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
 
+            _client = new Greeter.GreeterClient(channel);
+            
+            return await _client.SignInAsync(request);
+        }
+
+        public async Task<SignUpReplingData> SignUpAsync(SignUpRequest request)
+        {
+            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+
+            _client = new Greeter.GreeterClient(channel);
+
+            return await _client.SignUpAsync(request);
+        }
     }
 }
