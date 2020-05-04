@@ -8,6 +8,8 @@ package greet;
 service Greeter {
 	// Sends a greeting
 	rpc SayHello (HelloRequest) returns (HelloReply);
+	rpc SignIn (SignInRequest) returns (ReplingDataBase);
+	rpc SignUp (SignUpRequest) returns (SignUpReplingData);
 }
 
 // The request message containing the user's name.
@@ -18,5 +20,27 @@ message HelloRequest {
 // The response message containing the greetings.
 message HelloReply {
 	string message = 1;
-	string message2 = 2;
 }
+
+message SignInRequest{
+	string login = 1;
+	string password = 2;
+}
+
+message ReplingDataBase{
+	bool IsSuccessed = 1;
+	string error = 2;
+}
+
+message SignUpReplingData {
+	bool IsSuccessed = 1;
+	string error = 2;
+	string NewId = 3;
+}
+
+message SignUpRequest{
+	string login = 1;
+	string password = 2;
+	string Initials = 3;
+}
+

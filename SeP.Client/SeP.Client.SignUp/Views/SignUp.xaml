@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SeP.Client.SignUp.Views.SignUp"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:prism="http://prismlibrary.com/"
+			 prism:ViewModelLocator.AutoWireViewModel="True"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="450" d:DesignWidth="800">
+
+
+    <StackPanel>
+        <TextBlock Text="Инициалы"/>
+        <TextBox Text="{Binding Initials}"/>
+
+        <TextBlock Text="Логин"/>
+        <TextBox Text="{Binding Login}"/>
+
+        <TextBlock Text="Пароль"/>
+        <TextBox Text="{Binding Password}"/>
+
+        <TextBlock Text="Повторите пароль"/>
+        <TextBox Text="{Binding ConfirmPassword}"/>
+
+        <Button Content="Вход" Command="{Binding SignUpCommand}"/>
+
+        <TextBlock>
+            <Hyperlink Command="{Binding NavigateToLogInCommand}">Авторизацич</Hyperlink>
+        </TextBlock>
+
+    </StackPanel>
+
+</UserControl>

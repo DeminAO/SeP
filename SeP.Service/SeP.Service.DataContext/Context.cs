@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeP.Service.DataContext.Contracts;
+using SeP.Service.DataContext.Entities;
 
 namespace SeP.Service.DataContext
 {

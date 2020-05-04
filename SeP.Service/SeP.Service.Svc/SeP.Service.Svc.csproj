@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\..\Sep.Core\Sep.Core.Proto\greet.proto" GrpcServices="Server" Link="Proto\greet.proto"/>
+    <Protobuf Include="..\..\Sep.Core\Sep.Core.Proto\greet.proto" GrpcServices="Server" Link="Proto\greet.proto" />
   </ItemGroup>
 
   <ItemGroup>
@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SeP.Core\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj" />
     <ProjectReference Include="..\SeP.Service.DataContext\SeP.Service.DataContext.csproj" />
   </ItemGroup>
 
