@@ -14,7 +14,7 @@ namespace SeP.Service.DataContext
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=DESKTOP-5160TTM;Database=SeP;Trusted_Connection=True;");
+			optionsBuilder.UseSqlServer(@"Server=localhost\SQLSERVER;Database=SeP;Trusted_Connection=True;");
 
 		}
 

@@ -26,7 +26,7 @@
         <TextBlock Grid.Row="2" Text="Пароль"/>
         <TextBox Grid.Row="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Grid.Row="4" Content="Вход" Command="{Binding LogInCommand}"/>
+        <Button Grid.Row="4" Content="Вход" Command="{Binding LogInCommand}" IsDefault="True"/>
 
         <TextBlock Grid.Row="5">
 			<Hyperlink Command="{Binding NavigateToSignUpCommand}">Регистрацич</Hyperlink>

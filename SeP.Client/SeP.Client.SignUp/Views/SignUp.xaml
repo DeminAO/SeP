@@ -22,7 +22,7 @@
         <TextBlock Text="Повторите пароль"/>
         <TextBox Text="{Binding ConfirmPassword}"/>
 
-        <Button Content="Вход" Command="{Binding SignUpCommand}"/>
+        <Button Content="Вход" Command="{Binding SignUpCommand}" IsDefault="True"/>
 
         <TextBlock>
             <Hyperlink Command="{Binding NavigateToLogInCommand}">Авторизацич</Hyperlink>

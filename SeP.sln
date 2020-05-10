@@ -34,7 +34,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Client.Proxy", "SeP.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Client.Shell", "SeP.Client\SeP.Client.Shell\SeP.Client.Shell.csproj", "{6F3D4555-51B5-4170-ABF5-983D94AA2A19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeP.Core.Interfaces", "SeP.Core\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj", "{054AB2BB-ED35-4B2E-B80C-40313D102CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Core.Interfaces", "SeP.Core\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj", "{054AB2BB-ED35-4B2E-B80C-40313D102CCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
