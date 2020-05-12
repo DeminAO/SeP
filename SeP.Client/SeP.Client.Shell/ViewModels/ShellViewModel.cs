@@ -4,6 +4,7 @@ using SeP.Client.Infrastructure.Constants;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SeP.Client.Shell.ViewModels
@@ -28,7 +29,13 @@ namespace SeP.Client.Shell.ViewModels
 
 		private void OnLoadedCommand()
 		{
-			RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.Auth);
+			Init();
+		}
+
+		private void Init()
+		{
+			RegionManager.RequestNavigate(RegionNames.LeftRegion, ViewNames.Correspondences);
+			// init main region with messageBlock
 		}
 	}
 }

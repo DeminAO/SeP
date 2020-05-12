@@ -16,11 +16,13 @@ namespace SeP.Client.Infrastructure.Base.ViewModels
 
 		public IRegionManager RegionManager { get; private set; }
 		public IProxyDialog ProxyDialog { get; private set; }
+		public IServiceLocator ServiceContainer { get; private set; }
 
 		public BaseViewModel()
 		{
-			RegionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
-			ProxyDialog = ServiceLocator.Current.GetInstance<IProxyDialog>();
+			ServiceContainer = ServiceLocator.Current;
+			RegionManager = ServiceContainer.GetInstance<IRegionManager>();
+			ProxyDialog = ServiceContainer.GetInstance<IProxyDialog>();
 		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)

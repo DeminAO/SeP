@@ -36,6 +36,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Client.Shell", "SeP.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Core.Interfaces", "SeP.Core\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj", "{054AB2BB-ED35-4B2E-B80C-40313D102CCB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeP.Client.Messengers", "SeP.Client.Messengers", "{48F5EA92-79B7-4523-8ABC-701337E3BB68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Client.Messengers.VkMessenger", "SeP.Client\SeP.Client.Messengers\SeP.Client.Messengers.VkMessenger\SeP.Client.Messengers.VkMessenger.csproj", "{CFD7E246-597E-4B9D-A5AD-BD66696EE47D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeP.Client.Services", "SeP.Client.Services", "{D4230F7B-0C6D-40E1-97FE-BE60BBEFDD45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeP.Client.Services.MessengerCollectionService", "SeP.Client\SeP.Client.Services\SeP.Client.Services.MessengerCollectionService\SeP.Client.Services.MessengerCollectionService.csproj", "{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +94,14 @@ Global
 		{054AB2BB-ED35-4B2E-B80C-40313D102CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{054AB2BB-ED35-4B2E-B80C-40313D102CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{054AB2BB-ED35-4B2E-B80C-40313D102CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD7E246-597E-4B9D-A5AD-BD66696EE47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD7E246-597E-4B9D-A5AD-BD66696EE47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD7E246-597E-4B9D-A5AD-BD66696EE47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD7E246-597E-4B9D-A5AD-BD66696EE47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +119,10 @@ Global
 		{D4634B4F-5121-49E9-928E-153583A564AC} = {7F3D9EA6-FE95-4EFB-B7ED-969494D5C9F0}
 		{6F3D4555-51B5-4170-ABF5-983D94AA2A19} = {7F3D9EA6-FE95-4EFB-B7ED-969494D5C9F0}
 		{054AB2BB-ED35-4B2E-B80C-40313D102CCB} = {3A77A618-7175-41EE-B776-76A144133E20}
+		{48F5EA92-79B7-4523-8ABC-701337E3BB68} = {7F3D9EA6-FE95-4EFB-B7ED-969494D5C9F0}
+		{CFD7E246-597E-4B9D-A5AD-BD66696EE47D} = {48F5EA92-79B7-4523-8ABC-701337E3BB68}
+		{D4230F7B-0C6D-40E1-97FE-BE60BBEFDD45} = {7F3D9EA6-FE95-4EFB-B7ED-969494D5C9F0}
+		{9BAD2C9D-D7F8-4D6D-8EBF-0531D5E06B9D} = {D4230F7B-0C6D-40E1-97FE-BE60BBEFDD45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE565373-FDBE-4EB4-911A-1EA312014ECA}
