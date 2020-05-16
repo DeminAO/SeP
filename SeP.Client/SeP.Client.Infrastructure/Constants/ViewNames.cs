@@ -6,5 +6,8 @@
 		public const string Auth = nameof(Auth);
 		public const string Correspondences = nameof(Correspondences);
 		public const string SignUp = nameof(SignUp);
+		public const string Authority = nameof(Authority);
+
+		public const string VkAuthority = nameof(VkAuthority);
 	}
 }

@@ -2,17 +2,17 @@
 using Prism.Modularity;
 using SeP.Client.Infrastructure.Constants;
 using SeP.Client.Infrastructure.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SeP.Client.Messengers.VK.Authority.Models;
+using SeP.Client.Messengers.VK.Authority.ViewModels;
+using SeP.Client.Messengers.VK.Authority.Views;
 
 namespace SeP.Client.Messengers.VkMessenger
 {
 	[Module(ModuleName = ModuleNames.VkMessengerModule)]
 	[ModuleDependency(ModuleNames.MessengerCollectionServiceModule)]
-	public class VkMessengerModule : IModule
+	public class VkModule : IModule
 	{
-		public void OnInitialized(IContainerProvider containerProvider) 
+		public void OnInitialized(IContainerProvider containerProvider)
 		{
 			// регистрацич сервиса в коллекции мессенджеров
 
@@ -23,7 +23,9 @@ namespace SeP.Client.Messengers.VkMessenger
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterSingleton<IVkMessenger, VkMessenger>();
+			containerRegistry.RegisterSingleton<IVkMessenger, Vk>();
+			containerRegistry.RegisterForNavigation<VkAuthority>(ViewNames.VkAuthority);
+			
 		}
 	}
 }

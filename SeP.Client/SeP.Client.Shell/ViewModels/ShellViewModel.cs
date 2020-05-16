@@ -35,6 +35,7 @@ namespace SeP.Client.Shell.ViewModels
 		private void Init()
 		{
 			RegionManager.RequestNavigate(RegionNames.LeftRegion, ViewNames.Correspondences);
+			RegionManager.RequestNavigate(RegionNames.GlobalRegion, ViewNames.Authority);
 			// init main region with messageBlock
 		}
 	}
