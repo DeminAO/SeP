@@ -3,11 +3,9 @@ using SeP.Client.Infrastructure.Base.ViewModels;
 using SeP.Client.Infrastructure.Constants;
 using SeP.Client.Infrastructure.Enums;
 using SeP.Client.Infrastructure.Interfaces;
-using SeP.Client.Infrastructure.Services;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SeP.Client.Authority.ViewModels
@@ -42,12 +40,12 @@ namespace SeP.Client.Authority.ViewModels
 			SelectMessengerTypeCommand = new DelegateCommand<MessengerTypes?>((mes) => OnSelectMessengerTypeCommandAsync(mes));
 		}
 
-		private void OnSelectMessengerTypeCommandAsync(MessengerTypes? mes) //=> Task.Run(() =>
+		private void OnSelectMessengerTypeCommandAsync(MessengerTypes? mes)
 		{
 			if (!mes.HasValue) return;
 
 			messengerService.ShowAuthority(mes.Value);
-		}//);
+		}
 
 		private void OnCloseCommand()
 		{

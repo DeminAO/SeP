@@ -1,9 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using SeP.Client.Infrastructure.Constants;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SeP.Client.Correspondences
 {

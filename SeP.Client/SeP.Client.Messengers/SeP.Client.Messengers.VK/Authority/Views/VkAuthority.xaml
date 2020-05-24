@@ -8,6 +8,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="{Binding Test}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="{Binding Test}"/>
+        <Button Grid.Row="1" Command="{Binding AuthCommand}" Content="Войти"/>
+        
     </Grid>
+    
 </UserControl>

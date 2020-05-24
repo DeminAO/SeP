@@ -6,6 +6,5 @@ namespace SeP.Client.Infrastructure.Interfaces
 {
 	public interface IAuthorityModel
 	{
-		bool IsUsed { get; set; }
 	}
 }

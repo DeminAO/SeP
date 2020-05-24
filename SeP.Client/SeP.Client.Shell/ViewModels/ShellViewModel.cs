@@ -1,10 +1,6 @@
 ﻿using Prism.Commands;
 using SeP.Client.Infrastructure.Base.ViewModels;
 using SeP.Client.Infrastructure.Constants;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SeP.Client.Shell.ViewModels
