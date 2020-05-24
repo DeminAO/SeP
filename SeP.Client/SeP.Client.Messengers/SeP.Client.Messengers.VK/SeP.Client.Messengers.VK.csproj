@@ -13,12 +13,6 @@
     <ProjectReference Include="..\..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="VkNet">
-      <HintPath>lib\VkNet.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(TargetDir)SeP.Client.Messengers.Vk.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)\Images\Vk.png&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Images\&quot; /Y" />
   </Target>

@@ -9,6 +9,6 @@ namespace SeP.Client.Infrastructure.Constants
 		public const string LeftRegion = nameof(LeftRegion);
 		public const string MainRegion = nameof(MainRegion);
 		public const string GlobalRegion = nameof(GlobalRegion);
-
+		public const string AuthorityRegion = nameof(AuthorityRegion);
 	}
 }

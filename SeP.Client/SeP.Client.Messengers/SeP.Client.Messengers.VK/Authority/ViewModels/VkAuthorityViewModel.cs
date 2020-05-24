@@ -11,5 +11,12 @@ namespace SeP.Client.Messengers.VK.Authority.ViewModels
 			get => isUsed;
 			set => SetProperty(ref isUsed, value);
 		}
+
+		private string test = "123345";
+		public string Test
+		{
+			get => test;
+			set => SetProperty(ref test, value);
+		}
 	}
 }

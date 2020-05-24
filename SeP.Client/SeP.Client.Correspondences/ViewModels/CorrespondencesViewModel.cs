@@ -1,7 +1,5 @@
 ﻿using SeP.Client.Infrastructure.Base.ViewModels;
 using SeP.Client.Infrastructure.Interfaces;
-using System;
-using System.Collections.Generic;
 
 namespace SeP.Client.Correspondences.ViewModels
 {

@@ -1,4 +1,5 @@
-﻿using SeP.Client.Infrastructure.Enums;
+﻿using SeP.Client.Infrastructure.Constants;
+using SeP.Client.Infrastructure.Enums;
 using SeP.Client.Infrastructure.Interfaces;
 using System;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace SeP.Client.Messengers.VkMessenger
 	public class Vk : IVkMessenger
 	{
 		public MessengerTypes MessengerType { get; } = MessengerTypes.VK;
-
+		public string AuthorityViewName { get; } = ViewNames.VkAuthority;
 
 		public Vk()
 		{

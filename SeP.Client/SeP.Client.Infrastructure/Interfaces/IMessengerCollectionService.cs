@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SeP.Client.Infrastructure.Enums;
+using System.Collections.Generic;
 
 namespace SeP.Client.Infrastructure.Interfaces
 {
@@ -7,5 +8,7 @@ namespace SeP.Client.Infrastructure.Interfaces
 		List<IMessenger> Messengers { get; }
 
 		void RegisterMessenger(IMessenger messenger);
+
+		void ShowAuthority(MessengerTypes messengerType);
 	}
 }
