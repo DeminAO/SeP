@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Citrina" Version="3.0.1" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
 
@@ -14,8 +13,20 @@
     <ProjectReference Include="..\..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Citrina">
+      <HintPath>lib\Citrina.dll</HintPath>
+    </Reference>
+    <Reference Include="Citrina.CallbackApi">
+      <HintPath>lib\Citrina.CallbackApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Citrina.Uploader">
+      <HintPath>lib\Citrina.Uploader.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)SeP.Client.Messengers.Vk.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)\Images\*.png&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Images\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)SeP.Client.Messengers.Vk.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)\Images\*.png&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Images\&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)\lib\*.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y" />
   </Target>
 
 </Project>

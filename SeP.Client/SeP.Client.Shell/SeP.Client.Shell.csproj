@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SeP.Core\SeP.Core.JsonService\SeP.Core.JsonService.csproj" />
     <ProjectReference Include="..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
   </ItemGroup>
 
