@@ -6,13 +6,7 @@ using System.Text;
 
 namespace SeP.Client.Messengers.VK.Authority.Models
 {
-	public class VkAuthorityModel : BindableBase, IAuthorityModel
+	public class VkAuthorityModel : BindableBase
 	{
-		private bool isUsed;
-		public bool IsUsed
-		{
-			get => isUsed;
-			set => SetProperty(ref isUsed, value);
-		}
 	}
 }

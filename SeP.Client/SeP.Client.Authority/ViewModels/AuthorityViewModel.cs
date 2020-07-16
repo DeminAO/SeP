@@ -1,12 +1,11 @@
 ﻿using Prism.Commands;
 using SeP.Client.Infrastructure.Base.ViewModels;
+using SeP.Client.Infrastructure.Constants;
 using SeP.Client.Infrastructure.Enums;
 using SeP.Client.Infrastructure.Interfaces;
-using SeP.Client.Infrastructure.Services;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SeP.Client.Authority.ViewModels
@@ -26,27 +25,39 @@ namespace SeP.Client.Authority.ViewModels
 						.Select(x => KeyValuePair.Create(x.MessengerType, Path.GetFullPath($".\\Images\\{x.MessengerType}.png")))
 						.ToList();
 
-				messengersTypes.Add(KeyValuePair.Create(MessengerTypes.Empty, ""));
-				
 				return messengersTypes;
 			}
 		}
 
 		public ICommand SelectMessengerTypeCommand { get; private set; }
+		public ICommand CloseCommand { get; private set; }
 
 		public AuthorityViewModel(IMessengerCollectionService messengerService)
 		{
 			this.messengerService = messengerService;
 
+			CloseCommand = new DelegateCommand(OnCloseCommand);
 			SelectMessengerTypeCommand = new DelegateCommand<MessengerTypes?>((mes) => OnSelectMessengerTypeCommandAsync(mes));
 		}
 
-		private void OnSelectMessengerTypeCommandAsync(MessengerTypes? mes) //=> Task.Run(() =>
+		private void OnSelectMessengerTypeCommandAsync(MessengerTypes? mes)
 		{
-			var tmp = mes;
-			if (mes == null) return;
+			if (!mes.HasValue) return;
 
-			ProxyDialog.ShowInfo(tmp.ToString());
-		}//);
+			messengerService.ShowAuthority(mes.Value);
+		}
+
+		private void OnCloseCommand()
+		{
+			RegionManager
+				.Regions
+				.FirstOrDefault(x => x.Name.Contains(RegionNames.AuthorityRegion))
+				?.RemoveAll();
+			RegionManager
+				.Regions
+				.FirstOrDefault(x => x.Name.Contains(RegionNames.GlobalRegion))
+				?.RemoveAll();
+
+		}
 	}
 }

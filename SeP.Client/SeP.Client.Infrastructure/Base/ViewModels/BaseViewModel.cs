@@ -25,14 +25,14 @@ namespace SeP.Client.Infrastructure.Base.ViewModels
 			ProxyDialog = ServiceContainer.GetInstance<IProxyDialog>();
 		}
 
-		public bool IsNavigationTarget(NavigationContext navigationContext)
+		public virtual bool IsNavigationTarget(NavigationContext navigationContext)
 		{
-			return false;
+			return true;
 		}
 
-		public void OnNavigatedFrom(NavigationContext navigationContext) { }
+		public virtual void OnNavigatedFrom(NavigationContext navigationContext) { }
 
-		public void OnNavigatedTo(NavigationContext navigationContext) { }
+		public virtual void OnNavigatedTo(NavigationContext navigationContext) { }
 
 	}
 }

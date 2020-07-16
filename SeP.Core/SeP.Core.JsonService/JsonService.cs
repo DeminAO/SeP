@@ -1,16 +1,17 @@
 ﻿using Newtonsoft.Json;
+using SeP.Core.Interfaces;
 using System;
 using System.IO;
 using System.Reflection;
 
 namespace SeP.Core.JsonService
 {
-	public static class JsonServiceModule
+	public class JsonService: IJsonService
 	{
-		public static T ParseString<T>(string json)
+		public T ParseString<T>(string json)
 			=> JsonConvert.DeserializeObject<T>(json);
 
-		public static string ConvertToString<T>(T data)
+		public string ConvertToString<T>(T data)
 			=> JsonConvert.SerializeObject(data);
 
 		/// <summary>
@@ -18,7 +19,7 @@ namespace SeP.Core.JsonService
 		/// </summary>
 		// Длч корректной работы с данным методом необходимо копировать при сборке конфиги в папку настроек у нужного приложенич
 		// Пример длч сервера: xcopy "$(ProjectDir)Settings\*.json" "$(SolutionDir)SeP.Service\SeP.Service.Svc\bin\$(ConfigurationName)\netcoreapp3.1\Settings\" /Y
-		public static T ReadConfig<T>() where T : new()
+		public T ReadConfig<T>() where T : new()
 		{
 			var assemblyLocation = Assembly.GetEntryAssembly().Location;
 

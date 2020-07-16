@@ -5,11 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SeP.Core.Helpers\SeP.Core.Helpers.csproj" />
+    <ProjectReference Include="..\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)SeP.Core.JsonService.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\Modules\&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)lib\*.dll&quot; &quot;$(SolutionDir)SeP.Client\Sep.Client.Shell\bin\$(ConfigurationName)\netcoreapp3.1\&quot; /Y" />
+  </Target>
 
 </Project>
