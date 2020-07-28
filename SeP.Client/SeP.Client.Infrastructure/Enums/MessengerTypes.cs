@@ -7,6 +7,7 @@ namespace SeP.Client.Infrastructure.Enums
 	public enum MessengerTypes
 	{
 		Empty,
-		VK
+		VK,
+		Tg
 	}
 }
