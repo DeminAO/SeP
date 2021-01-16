@@ -7,7 +7,7 @@
 		xmlns:prism="http://prismlibrary.com/" 
 		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 		prism:ViewModelLocator.AutoWireViewModel="True"
-		Title="Shell" Height="450" Width="800">
+		Title="Shell" MinHeight="650" MinWidth="600">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded">

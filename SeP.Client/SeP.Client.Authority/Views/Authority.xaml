@@ -12,7 +12,7 @@
         <BooleanToVisibilityConverter x:Key="boolToVis"/>
     </UserControl.Resources>
 
-    <Border Background="#ffcacaca" Margin="10" CornerRadius="10">
+    <Border Background="#ffcacaca" Margin="10" CornerRadius="2">
         <Grid x:Name="MainGrid">
 
             <Grid.RowDefinitions>
@@ -20,18 +20,16 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
+            
+            <Button Command="{Binding CloseCommand}" HorizontalAlignment="Right" Grid.Row="0" >
+                <Image Source="../Images/close.png" Width="14" Height="14"/>
+            </Button>
             <Border BorderBrush="Gray" BorderThickness="0 0 0 1" Margin="10 0" Grid.Row="0"/>
-            <StackPanel Grid.Row="0" Background="Transparent">
-                <Button Command="{Binding CloseCommand}" HorizontalAlignment="Right">
-                    <Image Source="../Images/close.png" Width="24" Height="24"/>
-                </Button>
-            </StackPanel>
-
+            
             <ContentControl Grid.Row="1" prism:RegionManager.RegionName="AuthorityRegion"/>
 
-            <ListView Grid.Row="2"
-				  ItemsSource="{Binding MessengersTypes}" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <ListView Grid.Row="2" ItemsSource="{Binding MessengersTypes}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Visible">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

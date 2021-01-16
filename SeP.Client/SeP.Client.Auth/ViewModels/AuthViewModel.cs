@@ -3,6 +3,7 @@ using SeP.Client.Auth.Services;
 using SeP.Client.Infrastructure.Base;
 using SeP.Client.Infrastructure.Base.ViewModels;
 using SeP.Client.Infrastructure.Constants;
+using SeP.Core.Helpers.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -41,7 +42,13 @@ namespace SeP.Client.Auth.ViewModels
 			RegionManager.RequestNavigate(RegionNames.MainRegion, ViewNames.SignUp);
 		}
 
-		private async Task OnLogInCommand()
+		private Task OnLogInCommand()
+			=> Task
+			.CompletedTask
+			// .Catch(LogIn, e => ProxyDialog.ShowInfo(e.Message))
+			.Next(() => RegionManager.RequestNavigate(RegionNames.LeftRegion, ViewNames.Correspondences));
+
+		private async Task LogIn()
 		{
 			try
 			{
@@ -58,8 +65,6 @@ namespace SeP.Client.Auth.ViewModels
 					ProxyDialog.ShowInfo(result.Error);
 					return;
 				}
-
-				RegionManager.RequestNavigate(RegionNames.LeftRegion, ViewNames.Correspondences);
 			}
 			catch (Exception e)
 			{

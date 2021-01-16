@@ -48,6 +48,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Client.Messengers.VK", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeP.Core.HttpClientService", "SeP.Core\SeP.Core.HttpClient\SeP.Core.HttpClientService.csproj", "{40DE7E85-49AB-42E1-BE99-C88768B5E7A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +116,10 @@ Global
 		{40DE7E85-49AB-42E1-BE99-C88768B5E7A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40DE7E85-49AB-42E1-BE99-C88768B5E7A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40DE7E85-49AB-42E1-BE99-C88768B5E7A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +143,7 @@ Global
 		{202EE3C7-51AD-4148-8F2D-69C363BED80A} = {7F3D9EA6-FE95-4EFB-B7ED-969494D5C9F0}
 		{28CC2192-FBBD-4E9C-A4D7-60B01BB9320A} = {48F5EA92-79B7-4523-8ABC-701337E3BB68}
 		{40DE7E85-49AB-42E1-BE99-C88768B5E7A8} = {3A77A618-7175-41EE-B776-76A144133E20}
+		{17FD2F00-FA58-4E00-8BCD-E4BB920F0C7E} = {3A77A618-7175-41EE-B776-76A144133E20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE565373-FDBE-4EB4-911A-1EA312014ECA}

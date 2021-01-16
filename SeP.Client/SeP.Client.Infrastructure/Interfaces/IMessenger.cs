@@ -1,4 +1,7 @@
-﻿using SeP.Client.Infrastructure.Enums;
+﻿using Models;
+using SeP.Client.Infrastructure.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SeP.Client.Infrastructure.Interfaces
 {
@@ -6,6 +9,7 @@ namespace SeP.Client.Infrastructure.Interfaces
 	{
 		MessengerTypes MessengerType { get; }
 		string AuthorityViewName { get; }
-		bool Authorize(params object[] authParams);
+		Task<bool> Authorize(params object[] authParams);
+		Task<IEnumerable<DialogData>> GetDialogs();
 	}
 }
