@@ -1,8 +1,11 @@
-﻿using SeP.Client.Infrastructure.Constants;
+﻿using Models;
+using SeP.Client.Infrastructure.Constants;
 using SeP.Client.Infrastructure.Enums;
 using SeP.Client.Infrastructure.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SeP.Client.Messengers.Tg
 {
@@ -30,6 +33,16 @@ namespace SeP.Client.Messengers.Tg
 			}
 
 			return result;
+		}
+
+		Task<bool> IMessenger.Authorize(params object[] authParams)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<IEnumerable<DialogData>> GetDialogs()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

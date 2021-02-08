@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -19,9 +19,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SeP.Core\SeP.Core.Interfaces\SeP.Core.Interfaces.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Protobuf Include="..\..\Sep.Core\Sep.Core.Proto\greet.proto" GrpcServices="Client" Link="Proto\greet.proto" />
   </ItemGroup>
 </Project>

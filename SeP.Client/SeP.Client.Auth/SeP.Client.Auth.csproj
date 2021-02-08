@@ -12,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\SeP.Core\SeP.Core.Helpers\SeP.Core.Helpers.csproj" />
     <ProjectReference Include="..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
-    <ProjectReference Include="..\SeP.Client.Proxy\SeP.Client.Proxy.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

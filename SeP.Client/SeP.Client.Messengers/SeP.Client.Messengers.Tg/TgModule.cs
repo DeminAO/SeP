@@ -22,7 +22,8 @@ namespace SeP.Client.Messengers.Tg
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterSingleton<ITgMessenger, Tg>();
-			containerRegistry.RegisterForNavigation<TgAuthority>(ViewNames.TgAuthority);
+			// todo: 
+			// containerRegistry.RegisterForNavigation<TgAuthority>(ViewNames.TgAuthority);
 
 		}
 	}

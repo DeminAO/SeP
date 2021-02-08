@@ -5,4 +5,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
