@@ -14,7 +14,6 @@ namespace SeP.Client.Messengers.VK.Authority.ViewModels
 {
 	public class VkAuthorityViewModel : BaseViewModel, IAuthorityModel
 	{
-		private readonly IMessengerCollectionService messengerService;
 		private readonly IVkMessenger vk;
 
 		private Uri authUrl;
@@ -30,11 +29,9 @@ namespace SeP.Client.Messengers.VK.Authority.ViewModels
 
 		public ICommand AuthCommand { get; private set; }
 
-		public VkAuthorityViewModel(IMessengerCollectionService messengerService)
+		public VkAuthorityViewModel(IVkMessenger messenger)
 		{
-			this.messengerService = messengerService;
-
-			vk = messengerService.Messengers.First(x => x.MessengerType == MessengerTypes.VK) as IVkMessenger;
+			vk = messenger;
 			AuthUrl = vk.GetAuthUri();
 		}
 
@@ -73,7 +70,7 @@ namespace SeP.Client.Messengers.VK.Authority.ViewModels
 		{
 			if(await vk.Authorize(code))
 			{
-				var t = await vk.GetDialogs(); 
+				// var t = await vk.GetDialogs(); 
 			}
 		}
 	}
