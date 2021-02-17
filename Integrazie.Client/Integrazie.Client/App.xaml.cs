@@ -1,21 +1,31 @@
-﻿using Integrazie.Client.Services;
+﻿using Integrazie.Client.ViewModels;
 using Integrazie.Client.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Prism;
+using Prism.Ioc;
 
 namespace Integrazie.Client
 {
-	public partial class App : Application
+	public partial class App : Prism.Unity.PrismApplication
 	{
+		#region Prism  
 
-		public App()
+		public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer) { }
+
+		protected override void OnInitialized()
 		{
 			InitializeComponent();
+			NavigationService.NavigateAsync(nameof(AboutPage));
 
-			DependencyService.Register<MockDataStore>();
-			MainPage = new AppShell();
+
 		}
+		protected override void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
+			// containerRegistry.RegisterForNavigation<MyPage, MyPageViewModel>();
+		}
+
+
+		#endregion Prism
 
 		protected override void OnStart()
 		{

@@ -1,4 +1,4 @@
-﻿using SeP.Client.Cross.Infrastructure.Models;
+﻿using SeP.Client.Cross.Infrastructure.Models.ResultCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

@@ -7,7 +7,7 @@ using Xamarin.Forms;
 namespace Integrazie.Client.ViewModels
 {
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
-	public class ItemDetailViewModel : BaseViewModel
+	public class ItemDetaiPagelViewModel : BaseViewModel
 	{
 		private string itemId;
 		private string text;

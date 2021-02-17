@@ -5,6 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Integrazie.Client.Views.LoginPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"  
+             prism:ViewModelLocator.AutowireViewModel="True" 
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">

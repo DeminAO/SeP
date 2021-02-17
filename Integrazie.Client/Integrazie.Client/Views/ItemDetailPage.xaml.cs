@@ -1,6 +1,4 @@
-﻿using Integrazie.Client.ViewModels;
-using System.ComponentModel;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Integrazie.Client.Views
 {
@@ -9,7 +7,6 @@ namespace Integrazie.Client.Views
 		public ItemDetailPage()
 		{
 			InitializeComponent();
-			BindingContext = new ItemDetailViewModel();
 		}
 	}
 }

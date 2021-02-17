@@ -7,13 +7,14 @@ using Xamarin.Forms;
 
 namespace Integrazie.Client.ViewModels
 {
-	public class NewItemViewModel : BaseViewModel
+	public class NewItemPageViewModel : BaseViewModel
 	{
 		private string text;
 		private string description;
 
-		public NewItemViewModel()
+		public NewItemPageViewModel()
 		{
+			Title = "New Item";
 			SaveCommand = new Command(OnSave, ValidateSave);
 			CancelCommand = new Command(OnCancel);
 			this.PropertyChanged +=

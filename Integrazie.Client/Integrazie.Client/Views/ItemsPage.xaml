@@ -5,6 +5,9 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:Integrazie.Client.ViewModels"  
              xmlns:model="clr-namespace:Integrazie.Client.Models"  
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             x:DataType="local:ItemsPageViewModel"
+             prism:ViewModelLocator.AutowireViewModel="True" 
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
@@ -14,7 +17,7 @@
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
-    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+    <RefreshView x:DataType="local:ItemsPageViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
@@ -32,7 +35,7 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsPageViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>
