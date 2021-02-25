@@ -52,7 +52,7 @@ namespace Integrazie.Client.ViewModels
 		{
 			Item newItem = new Item()
 			{
-				Id = Guid.NewGuid().ToString(),
+				Id = Guid.NewGuid(),
 				Text = Text,
 				Description = Description
 			};

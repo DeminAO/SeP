@@ -1,5 +1,6 @@
 ﻿using Integrazie.Client.Models;
 using Integrazie.Client.Views;
+using Prism.Navigation;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -12,7 +13,12 @@ namespace Integrazie.Client.ViewModels
 	{
 		private Item _selectedItem;
 
-		public ObservableCollection<Item> Items { get; }
+		private ObservableCollection<Item> items;
+		public ObservableCollection<Item> Items
+		{
+			get => items ?? (items = new ObservableCollection<Item>());
+			set => SetProperty(ref items, value);
+		}
 		public Command LoadItemsCommand { get; }
 		public Command AddItemCommand { get; }
 		public Command<Item> ItemTapped { get; }
@@ -21,7 +27,7 @@ namespace Integrazie.Client.ViewModels
 		{
 			Title = "Browse";
 			Items = new ObservableCollection<Item>();
-			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+			LoadItemsCommand = new Command(() => _ = ExecuteLoadItemsCommand());
 
 			ItemTapped = new Command<Item>(OnItemSelected);
 
@@ -35,11 +41,7 @@ namespace Integrazie.Client.ViewModels
 			try
 			{
 				Items.Clear();
-				var items = await DataStore.GetItemsAsync(true);
-				foreach (var item in items)
-				{
-					Items.Add(item);
-				}
+				Items = new ObservableCollection<Item>(await DataStore.GetItemsAsync(true));
 			}
 			catch (Exception ex)
 			{
@@ -69,16 +71,21 @@ namespace Integrazie.Client.ViewModels
 
 		private async void OnAddItem(object obj)
 		{
-			await Shell.Current.GoToAsync(nameof(NewItemPage));
+			await navigation.NavigateAsync(nameof(NewItemPage));
 		}
 
 		async void OnItemSelected(Item item)
 		{
 			if (item == null)
+			{
 				return;
+			}
 
-			// This will push the ItemDetailPage onto the navigation stack
-			await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetaiPagelViewModel.ItemId)}={item.Id}");
+			var navpars = new NavigationParameters
+			{
+				{ "ItemId", item.Id }
+			};
+			await navigation.NavigateAsync(nameof(ItemDetailPage), navpars);
 		}
 	}
 }

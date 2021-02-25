@@ -2,6 +2,8 @@
 using Integrazie.Client.Views;
 using Prism;
 using Prism.Ioc;
+using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace Integrazie.Client
 {
@@ -14,16 +16,20 @@ namespace Integrazie.Client
 		protected override void OnInitialized()
 		{
 			InitializeComponent();
+			
+			DependencyService.RegisterSingleton(this.NavigationService);
+
 			NavigationService.NavigateAsync(nameof(AboutPage));
 
 
 		}
+
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
-			// containerRegistry.RegisterForNavigation<MyPage, MyPageViewModel>();
+			containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
+			containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
 		}
-
 
 		#endregion Prism
 

@@ -1,16 +1,15 @@
 ﻿using Integrazie.Client.Models;
 using Integrazie.Client.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using Prism.Mvvm;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace Integrazie.Client.ViewModels
 {
-	public class BaseViewModel : INotifyPropertyChanged
+	public class BaseViewModel : BindableBase
 	{
-		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+		protected readonly IDataStore<Item> DataStore;
+		protected readonly INavigationService navigation;
 
 		bool isBusy = false;
 		public bool IsBusy
@@ -26,29 +25,10 @@ namespace Integrazie.Client.ViewModels
 			set { SetProperty(ref title, value); }
 		}
 
-		protected bool SetProperty<T>(ref T backingStore, T value,
-			[CallerMemberName] string propertyName = "",
-			Action onChanged = null)
+		public BaseViewModel()
 		{
-			if (EqualityComparer<T>.Default.Equals(backingStore, value))
-				return false;
-
-			backingStore = value;
-			onChanged?.Invoke();
-			OnPropertyChanged(propertyName);
-			return true;
+			this.navigation = DependencyService.Get<INavigationService>();
+			this.DataStore = DependencyService.Get<IDataStore<Item>>();
 		}
-
-		#region INotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
-		protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-		{
-			var changed = PropertyChanged;
-			if (changed == null)
-				return;
-
-			changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
-		#endregion
 	}
 }

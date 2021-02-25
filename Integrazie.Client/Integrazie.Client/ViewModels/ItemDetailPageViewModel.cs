@@ -1,4 +1,5 @@
 ﻿using Integrazie.Client.Models;
+using Prism.Navigation;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -7,12 +8,12 @@ using Xamarin.Forms;
 namespace Integrazie.Client.ViewModels
 {
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
-	public class ItemDetaiPagelViewModel : BaseViewModel
+	public class ItemDetailPageViewModel : BaseViewModel, INavigationAware
 	{
-		private string itemId;
+		private Guid itemId;
 		private string text;
 		private string description;
-		public string Id { get; set; }
+		public Guid Id { get; set; }
 
 		public string Text
 		{
@@ -26,7 +27,7 @@ namespace Integrazie.Client.ViewModels
 			set => SetProperty(ref description, value);
 		}
 
-		public string ItemId
+		public Guid ItemId
 		{
 			get
 			{
@@ -35,11 +36,10 @@ namespace Integrazie.Client.ViewModels
 			set
 			{
 				itemId = value;
-				LoadItemId(value);
 			}
 		}
 
-		public async void LoadItemId(string itemId)
+		public async Task LoadItemId(Guid itemId)
 		{
 			try
 			{
@@ -51,6 +51,19 @@ namespace Integrazie.Client.ViewModels
 			catch (Exception)
 			{
 				Debug.WriteLine("Failed to Load Item");
+			}
+		}
+
+		public void OnNavigatedFrom(INavigationParameters parameters)
+		{
+			//
+		}
+
+		public void OnNavigatedTo(INavigationParameters parameters)
+		{
+			if (parameters[nameof(ItemId)] is Guid id)
+			{
+				_ = LoadItemId(id);
 			}
 		}
 	}
