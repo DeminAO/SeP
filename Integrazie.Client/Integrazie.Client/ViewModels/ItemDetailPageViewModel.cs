@@ -7,8 +7,7 @@ using Xamarin.Forms;
 
 namespace Integrazie.Client.ViewModels
 {
-	[QueryProperty(nameof(ItemId), nameof(ItemId))]
-	public class ItemDetailPageViewModel : BaseViewModel, INavigationAware
+	public class ItemDetailPageViewModel : BaseViewModel
 	{
 		private Guid itemId;
 		private string text;
@@ -29,14 +28,16 @@ namespace Integrazie.Client.ViewModels
 
 		public Guid ItemId
 		{
-			get
-			{
-				return itemId;
-			}
-			set
-			{
-				itemId = value;
-			}
+			get => itemId;
+			set => SetProperty(ref itemId, value);
+		}
+
+		public Command BackCommand { get; }
+
+		public ItemDetailPageViewModel()
+		{
+
+			BackCommand = new Command(() => _ = GoBackAsync());
 		}
 
 		public async Task LoadItemId(Guid itemId)
@@ -54,16 +55,11 @@ namespace Integrazie.Client.ViewModels
 			}
 		}
 
-		public void OnNavigatedFrom(INavigationParameters parameters)
-		{
-			//
-		}
-
-		public void OnNavigatedTo(INavigationParameters parameters)
+		public override async Task OnNavigatedToAsync(INavigationParameters parameters)
 		{
 			if (parameters[nameof(ItemId)] is Guid id)
 			{
-				_ = LoadItemId(id);
+				await LoadItemId(id);
 			}
 		}
 	}

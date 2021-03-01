@@ -5,14 +5,37 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
 			 xmlns:viewmodels="clr-namespace:Integrazie.Client.ViewModels"
 			 x:DataType="viewmodels:ItemDetailPageViewModel"
-			 prism:ViewModelLocator.AutowireViewModel="True" 
+			 prism:ViewModelLocator.AutowireViewModel="True"
              Title="{Binding Title}">
+	<!-- not working -->
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Back" Command="{Binding BackCommand}"/>
+	</ContentPage.ToolbarItems>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
-    </StackLayout>
-    
+		<StackLayout BackgroundColor="{StaticResource Primary}">
+			<Grid>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button Margin="50" Text="{Binding BackTitle}" Command="{Binding BackCommand}"/>
+			</Grid>
+		</StackLayout>
+		
+		<StackLayout Spacing="10" Grid.Row="1">
+			<Label Text="Text:" FontSize="Medium" />
+			<Label Text="{Binding Text}" FontSize="Small"/>
+			<Label Text="Description:" FontSize="Medium" />
+			<Label Text="{Binding Description}" FontSize="Small"/>
+		</StackLayout>
+		
+	</Grid>
 </ContentPage>

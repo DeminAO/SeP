@@ -1,4 +1,6 @@
-﻿using Integrazie.Client.ViewModels;
+﻿using Integrazie.Client.Models;
+using Integrazie.Client.Services;
+using Integrazie.Client.ViewModels;
 using Integrazie.Client.Views;
 using Prism;
 using Prism.Ioc;
@@ -18,7 +20,8 @@ namespace Integrazie.Client
 		protected override void OnInitialized()
 		{
 			InitializeComponent();
-			
+			MainPage = new AppShell();
+
 			DependencyService.RegisterSingleton(this.NavigationService);
 
 			NavigationService.NavigateAsync(nameof(AboutPage));
@@ -27,6 +30,7 @@ namespace Integrazie.Client
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			DependencyService.Register<ITgRepository, TgRepository>();
+			DependencyService.Register<IDataStore<Item>, MockDataStore>();
 
 			containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
 			containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();

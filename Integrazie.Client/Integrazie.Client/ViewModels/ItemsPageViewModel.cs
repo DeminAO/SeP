@@ -28,10 +28,11 @@ namespace Integrazie.Client.ViewModels
 			Title = "Browse";
 			Items = new ObservableCollection<Item>();
 			LoadItemsCommand = new Command(() => _ = ExecuteLoadItemsCommand());
-
 			ItemTapped = new Command<Item>(OnItemSelected);
 
 			AddItemCommand = new Command(OnAddItem);
+
+			_ = ExecuteLoadItemsCommand();
 		}
 
 		async Task ExecuteLoadItemsCommand()
@@ -86,6 +87,11 @@ namespace Integrazie.Client.ViewModels
 				{ "ItemId", item.Id }
 			};
 			await navigation.NavigateAsync(nameof(ItemDetailPage), navpars);
+		}
+
+		public override Task OnNavigatedToAsync(INavigationParameters parameters)
+		{
+			return base.OnNavigatedToAsync(parameters);
 		}
 	}
 }

@@ -1,7 +1,9 @@
 ﻿using Integrazie.Client.Models;
+using Integrazie.Client.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,8 +17,8 @@ namespace Integrazie.Client.ViewModels
 		public NewItemPageViewModel()
 		{
 			Title = "New Item";
-			SaveCommand = new Command(OnSave, ValidateSave);
-			CancelCommand = new Command(OnCancel);
+			SaveCommand = new Command(() => _ = OnSave(), ValidateSave);
+			CancelCommand = new Command(() => _ = OnCancel());
 			this.PropertyChanged +=
 				(_, __) => SaveCommand.ChangeCanExecute();
 		}
@@ -42,13 +44,15 @@ namespace Integrazie.Client.ViewModels
 		public Command SaveCommand { get; }
 		public Command CancelCommand { get; }
 
-		private async void OnCancel()
+		private Task OnCancel()
 		{
 			// This will pop the current page off the navigation stack
-			await Shell.Current.GoToAsync("..");
+			return navigation.GoBackAsync();
+			//return navigation.NavigateAsync(nameof(ItemsPage))
+			//	.ContinueWith(t => _ =  Application.Current.MainPage.Navigation.PopAsync());
 		}
 
-		private async void OnSave()
+		private async Task OnSave()
 		{
 			Item newItem = new Item()
 			{
@@ -60,7 +64,7 @@ namespace Integrazie.Client.ViewModels
 			await DataStore.AddItemAsync(newItem);
 
 			// This will pop the current page off the navigation stack
-			await Shell.Current.GoToAsync("..");
+			await OnCancel();
 		}
 	}
 }
