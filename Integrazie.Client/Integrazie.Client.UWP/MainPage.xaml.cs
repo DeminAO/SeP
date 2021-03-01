@@ -9,7 +9,7 @@ namespace Integrazie.Client.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new Client.App(new UwpInitializer()));
+            LoadApplication(new Client.App(/*new UwpInitializer()*/));
         }
     }
 

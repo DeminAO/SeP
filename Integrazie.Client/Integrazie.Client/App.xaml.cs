@@ -2,6 +2,7 @@
 using Integrazie.Client.Views;
 using Prism;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Navigation;
 using SeP.Client.Cross.Modules.Telegram;
 using Xamarin.Forms;
@@ -31,6 +32,12 @@ namespace Integrazie.Client
 			containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
 			containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
 
+		}
+
+		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+		{
+			moduleCatalog.AddModule<TgModule>();
+			// base.ConfigureModuleCatalog(moduleCatalog);
 		}
 
 		#endregion Prism
