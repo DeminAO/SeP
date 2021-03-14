@@ -3,9 +3,10 @@
 	public class Result
 	{
 		public bool Success { get; protected set; }
+		public string Error { get; protected set; }
 
 		public static Result GetSucceed() => true;
-		public static Result GetFailure() => false;
+		public static Result GetFailure(string error) => new Result { Error = error };
 	
 		public static implicit operator bool(Result result) => result.Success;
 		public static implicit operator Result(bool result) => new Result { Success = result };
@@ -21,9 +22,10 @@
 			Success = true
 		};
 
-		public static new Result<T> GetFailure() => new Result<T>
+		public static new Result<T> GetFailure(string error) => new Result<T>
 		{
-			Success = false
+			Success = false,
+			Error = error
 		};
 	}
 }

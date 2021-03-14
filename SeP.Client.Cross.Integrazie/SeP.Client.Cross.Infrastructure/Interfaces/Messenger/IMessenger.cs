@@ -7,7 +7,7 @@ namespace SeP.Client.Cross.Infrastructure.Interfaces
 {
 	public interface IMessenger
 	{
-		Task<Result<ICollection<IDialog>>> GetAsync();
+		Task<Result<ICollection<IDialog>>> GetDialogsAsync();
 		Task<Result<ILogInResponse>> LogInAsync(ILogInRequest logInRequest);
 	}
 }
