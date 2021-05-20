@@ -1,13 +1,23 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using SeP.Client.Cross.Modules.Telegram.Models;
 
 namespace SeP.Client.Cross.Modules.Telegram
 {
 	public class TgModule : IModule
 	{
-		public void OnInitialized(IContainerProvider containerProvider)
+		public async void OnInitialized(IContainerProvider containerProvider)
 		{
-			
+			var rep = new TgRepository();
+			var rse = await rep.LogInAsync(new TgPhoneLoginRequest() { Phone = "8-952-603-54-26" });
+
+			var code = "";
+
+			var res2 = await rep.LogInAsync(new TgCodeLoginRequest { Code = code });
+
+			var res3 = await rep.GetDialogsAsync();
+
+			var tmp = 0;
 		}
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)

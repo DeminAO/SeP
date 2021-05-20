@@ -2,12 +2,12 @@
 
 namespace SeP.Client.Cross.Modules.Telegram.Models
 {
-	public class TgPhoneLoginRequest
+	public class TgPhoneLoginRequest : ILogInRequest
 	{
 		public string Phone { get; set; }
 	}
 	
-	public class TgCodeLoginRequest
+	public class TgCodeLoginRequest : ILogInRequest
 	{
 		public string Code { get; set; }
 	}

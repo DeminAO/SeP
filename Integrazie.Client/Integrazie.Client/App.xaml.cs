@@ -5,7 +5,6 @@ using Integrazie.Client.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Navigation;
 using SeP.Client.Cross.Modules.Telegram;
 using Xamarin.Forms;
 
@@ -29,7 +28,7 @@ namespace Integrazie.Client
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			DependencyService.Register<ITgRepository, TgRepository>();
+			// DependencyService.Register<ITgRepository, TgRepository>();
 			DependencyService.Register<IDataStore<Item>, MockDataStore>();
 
 			containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();

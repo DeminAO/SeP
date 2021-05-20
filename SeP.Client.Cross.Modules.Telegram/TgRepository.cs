@@ -1,32 +1,30 @@
 ﻿using SeP.Client.Cross.Infrastructure.Interfaces;
 using SeP.Client.Cross.Infrastructure.Models.ResultCore;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SeP.Client.Cross.Modules.Telegram
 {
-	using OpenTl.ClientApi;
 	using OpenTl.ClientApi.MtProto.Exceptions;
 	using OpenTl.Schema;
 	using Org.BouncyCastle.Bcpg;
 	using SeP.Client.Cross.Modules.Telegram.Models;
+	using System.Runtime.CompilerServices;
 
 	public class TgRepository : ITgRepository
 	{
-		private IClientApi _clientApi;
 		private TUser _user;
 
 		private string phone;
-		private bool isPhoneSetted => !string.IsNullOrWhiteSpace(phone);
-
-		private string code;
-		private bool isCodeSetted => !string.IsNullOrWhiteSpace(code);
 
 		private OpenTl.Schema.Auth.ISentCode sentCode;
 
 		public async Task<Result<ILogInResponse>> LogInAsync(ILogInRequest logInRequest)
 		{
+			var _clientApi = await new TgClientRepository().GetClient();
+
 			if (logInRequest is TgPhoneLoginRequest request)
 			{
 				phone = request.Phone;
@@ -58,9 +56,29 @@ namespace SeP.Client.Cross.Modules.Telegram
 			return Result<ILogInResponse>.GetFailure("unknown reqest");
 		}
 
-		Task<Result<ICollection<Infrastructure.Interfaces.IDialog>>> IMessenger.GetDialogsAsync()
+		public async Task<Result<IEnumerable<Infrastructure.Interfaces.IDialog>>> GetDialogsAsync()
 		{
-			throw new NotImplementedException();
+			var _clientApi = await new TgClientRepository().GetClient();
+			try
+			{
+				var contacts = await _clientApi.ContactsService.GetContactsAsync();
+				return Result<IEnumerable<Infrastructure.Interfaces.IDialog>>
+					.GetSucceed(
+					contacts.Contacts.Join(contacts.Users.OfType<TUser>(), x => x.UserId, x => x.Id, (c, u) => (c, u))
+					.Select(x => new TgDialogService
+					{
+						Id = x.c.UserId,
+						Name = x.u.Username,
+						DeleteAsync = _ => Task.FromResult(Result.GetFailure("not impl")),
+						SendAsync = _ => Task.FromResult(Result.GetFailure("not impl")),
+						GetAsync = () => Task.FromResult(Result<ICollection<SeP.Client.Cross.Infrastructure.Interfaces.IMessage>>.GetFailure("not impl"))
+					}));
+			}
+			catch (Exception e)
+			{
+				return Result<IEnumerable<Infrastructure.Interfaces.IDialog>>
+					.GetFailure(e.GetBaseException().Message);
+			}
 		}
 	}
 }
