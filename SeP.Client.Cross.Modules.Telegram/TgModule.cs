@@ -9,7 +9,7 @@ namespace SeP.Client.Cross.Modules.Telegram
 		public async void OnInitialized(IContainerProvider containerProvider)
 		{
 			var rep = new TgRepository();
-			var rse = await rep.LogInAsync(new TgPhoneLoginRequest() { Phone = "8-952-603-54-26" });
+			var rse = await rep.LogInAsync(new TgPhoneLoginRequest() { Phone = "+79526035426" });
 
 			var code = "";
 

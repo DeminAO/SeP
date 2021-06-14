@@ -20,7 +20,7 @@ namespace SeP.Client.Messengers.VkMessenger
 			| UserPermissions.Notify
 			;
 
-		private readonly string ebalaHash = "ACpKVGe2nBuHhz9PWmux";
+		private readonly string _hash = "ACpKVGe2nBuHhz9PWmux";
 
 		private readonly CitrinaClient client = new CitrinaClient();
 		private UserAccessToken token;
@@ -61,7 +61,7 @@ namespace SeP.Client.Messengers.VkMessenger
 
 			var call = await client.AuthHelper.GetAccessTokenAsync(
 				   appId,
-				   ebalaHash,
+				   _hash,
 				   defRedirect,
 				   code
 			   );
