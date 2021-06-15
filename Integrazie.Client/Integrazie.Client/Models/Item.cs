@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Integrazie.Client.Models
+namespace CrossMessenger.Client.Models
 {
 	public class Item
 	{

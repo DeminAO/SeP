@@ -1,14 +1,14 @@
-﻿using Integrazie.Client.Models;
-using Integrazie.Client.Services;
-using Integrazie.Client.ViewModels;
-using Integrazie.Client.Views;
+﻿using CrossMessenger.Client.Models;
+using CrossMessenger.Client.Modules.Telegram;
+using CrossMessenger.Client.Services;
+using CrossMessenger.Client.ViewModels;
+using CrossMessenger.Client.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
-using SeP.Client.Cross.Modules.Telegram;
 using Xamarin.Forms;
 
-namespace Integrazie.Client
+namespace CrossMessenger.Client
 {
 	public partial class App : Prism.Unity.PrismApplication
 	{

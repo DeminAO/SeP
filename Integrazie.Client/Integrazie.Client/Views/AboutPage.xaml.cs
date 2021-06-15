@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Integrazie.Client.Views
+namespace CrossMessenger.Client.Views
 {
 	public partial class AboutPage : ContentPage
 	{

@@ -1,11 +1,11 @@
-﻿using Integrazie.Client.Models;
-using Integrazie.Client.Services;
+﻿using CrossMessenger.Client.Models;
+using CrossMessenger.Client.Services;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Integrazie.Client.ViewModels
+namespace CrossMessenger.Client.ViewModels
 {
 	public class BaseViewModel : BindableBase, INavigationAware
 	{

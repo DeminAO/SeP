@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 x:Class="Integrazie.Client.Views.AboutPage"
-			 xmlns:vm="clr-namespace:Integrazie.Client.ViewModels"
+			 x:Class="CrossMessenger.Client.Views.AboutPage"
+			 xmlns:vm="clr-namespace:CrossMessenger.Client.ViewModels"
 			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 			 x:DataType="vm:AboutPageViewModel"
 			 prism:ViewModelLocator.AutowireViewModel="True" 

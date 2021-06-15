@@ -1,10 +1,10 @@
-﻿using Integrazie.Client.ViewModels;
-using Integrazie.Client.Views;
+﻿using CrossMessenger.Client.ViewModels;
+using CrossMessenger.Client.Views;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Integrazie.Client
+namespace CrossMessenger.Client
 {
 	public partial class AppShell : Xamarin.Forms.Shell
 	{

@@ -1,9 +1,9 @@
-﻿using SeP.Client.Cross.Infrastructure.Models.ResultCore;
+﻿using CrossMessenger.Client.Infrastructure.Models.ResultCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SeP.Client.Cross.Infrastructure.Interfaces
+namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
 	public interface IMessenger
 	{

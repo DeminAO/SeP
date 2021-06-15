@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Integrazie.Client.Views.LoginPage"
+             x:Class="CrossMessenger.Client.Views.LoginPage"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"  
              prism:ViewModelLocator.AutowireViewModel="True" 
              Shell.NavBarIsVisible="False">

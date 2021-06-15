@@ -1,16 +1,16 @@
-﻿using SeP.Client.Cross.Infrastructure.Interfaces;
-using SeP.Client.Cross.Infrastructure.Models.ResultCore;
+﻿using CrossMessenger.Client.Infrastructure.Interfaces;
+using CrossMessenger.Client.Infrastructure.Models.ResultCore;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SeP.Client.Cross.Modules.Telegram
+namespace CrossMessenger.Client.Modules.Telegram
 {
 	using OpenTl.ClientApi.MtProto.Exceptions;
 	using OpenTl.Schema;
 	using Org.BouncyCastle.Bcpg;
-	using SeP.Client.Cross.Modules.Telegram.Models;
+	using CrossMessenger.Client.Modules.Telegram.Models;
 	using System.Runtime.CompilerServices;
 
 	public class TgRepository : ITgRepository
@@ -68,10 +68,7 @@ namespace SeP.Client.Cross.Modules.Telegram
 					.Select(x => new TgDialogService
 					{
 						Id = x.c.UserId,
-						Name = x.u.Username,
-						DeleteAsync = _ => Task.FromResult(Result.GetFailure("not impl")),
-						SendAsync = _ => Task.FromResult(Result.GetFailure("not impl")),
-						GetAsync = () => Task.FromResult(Result<ICollection<SeP.Client.Cross.Infrastructure.Interfaces.IMessage>>.GetFailure("not impl"))
+						Name = x.u.Username
 					}));
 			}
 			catch (Exception e)

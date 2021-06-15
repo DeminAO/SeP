@@ -1,6 +1,6 @@
-﻿using SeP.Client.Cross.Infrastructure.Interfaces;
+﻿using CrossMessenger.Client.Infrastructure.Interfaces;
 
-namespace SeP.Client.Cross.Modules.Telegram.Models
+namespace CrossMessenger.Client.Modules.Telegram.Models
 {
 	public class TgPhoneLoginRequest : ILogInRequest
 	{

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Integrazie.Client.Views"
-       Title="Integrazie.Client"
-       x:Class="Integrazie.Client.AppShell">
+       xmlns:local="clr-namespace:CrossMessenger.Client.Views"
+       Title="CrossMessenger.Client."
+       x:Class="CrossMessenger.Client.AppShell">
 
     <!-- 
         When the Flyout is visible this defines the content to display in the flyout.

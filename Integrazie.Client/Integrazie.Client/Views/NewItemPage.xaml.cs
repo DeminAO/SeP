@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Integrazie.Client.Views
+namespace CrossMessenger.Client.Views
 {
 	public partial class NewItemPage : ContentPage
 	{

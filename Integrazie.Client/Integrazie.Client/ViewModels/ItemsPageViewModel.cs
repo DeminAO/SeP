@@ -1,5 +1,5 @@
-﻿using Integrazie.Client.Models;
-using Integrazie.Client.Views;
+﻿using CrossMessenger.Client.Models;
+using CrossMessenger.Client.Views;
 using Prism.Navigation;
 using System;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Integrazie.Client.ViewModels
+namespace CrossMessenger.Client.ViewModels
 {
 	public class ItemsPageViewModel : BaseViewModel
 	{

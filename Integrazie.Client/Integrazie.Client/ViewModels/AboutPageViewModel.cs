@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Integrazie.Client.ViewModels
+namespace CrossMessenger.Client.ViewModels
 {
 	public class AboutPageViewModel : BaseViewModel
 	{

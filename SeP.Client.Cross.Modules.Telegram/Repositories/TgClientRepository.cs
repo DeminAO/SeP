@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SeP.Client.Cross.Modules.Telegram
+namespace CrossMessenger.Client.Modules.Telegram
 {
 	using OpenTl.ClientApi;
 

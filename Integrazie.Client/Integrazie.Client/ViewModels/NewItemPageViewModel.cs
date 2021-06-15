@@ -1,5 +1,5 @@
-﻿using Integrazie.Client.Models;
-using Integrazie.Client.Views;
+﻿using CrossMessenger.Client.Models;
+using CrossMessenger.Client.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Integrazie.Client.ViewModels
+namespace CrossMessenger.Client.ViewModels
 {
 	public class NewItemPageViewModel : BaseViewModel
 	{

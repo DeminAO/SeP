@@ -1,4 +1,4 @@
-﻿namespace SeP.Client.Cross.Infrastructure.Interfaces
+﻿namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
 	public interface ILogOutInfo
 	{

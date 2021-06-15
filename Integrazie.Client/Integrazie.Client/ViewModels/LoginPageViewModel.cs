@@ -1,10 +1,10 @@
-﻿using Integrazie.Client.Views;
+﻿using CrossMessenger.Client.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Integrazie.Client.ViewModels
+namespace CrossMessenger.Client.ViewModels
 {
 	public class LoginPageViewModel : BaseViewModel
 	{

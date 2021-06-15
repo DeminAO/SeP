@@ -87,9 +87,9 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Integrazie.Client\Integrazie.Client.csproj">
-      <Project>{A2E2990D-BA84-4FE9-8112-39BDCD88868B}</Project>
-      <Name>Integrazie.Client</Name>
+    <ProjectReference Include="..\Integrazie.Client\CrossMessenger.Client.csproj">
+      <Project>{E893FA82-16F7-4B74-9412-0EA8883A7153}</Project>
+      <Name>CrossMessenger.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

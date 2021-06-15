@@ -1,16 +1,16 @@
-﻿using SeP.Client.Cross.Infrastructure.Models.ResultCore;
+﻿using CrossMessenger.Client.Infrastructure.Models.ResultCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SeP.Client.Cross.Infrastructure.Interfaces
+namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
 	public interface IDialog
 	{
 		string Name { get; }
-		Func<Task<Result<ICollection<IMessage>>>> GetAsync { get; }
-		Func<IMessage, Task<Result>> SendAsync { get; }
-		Func<IMessage, Task<Result>> DeleteAsync { get; }
+		Task<Result<ICollection<IMessage>>> GetAsync();
+		Task<Result> SendAsync(IMessage message);
+		Task<Result> DeleteAsync(IMessage message);
 	}
 
 }

@@ -1,4 +1,4 @@
-﻿namespace SeP.Client.Cross.Infrastructure.Models.ResultCore
+﻿namespace CrossMessenger.Client.Infrastructure.Models.ResultCore
 {
 	public class Result
 	{

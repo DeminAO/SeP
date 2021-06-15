@@ -1,7 +1,7 @@
 ﻿using Prism;
 using Prism.Ioc;
 
-namespace Integrazie.Client.UWP
+namespace CrossMessenger.Client.UWP
 {
     public sealed partial class MainPage
     {
