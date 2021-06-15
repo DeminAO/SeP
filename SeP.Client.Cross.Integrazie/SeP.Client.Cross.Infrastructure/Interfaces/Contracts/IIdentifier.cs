@@ -1,8 +1,7 @@
 ﻿namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
-	public interface ILogOutInfo
+	public interface IIdentifier
 	{
-
+		string Name { get; }
 	}
-
 }

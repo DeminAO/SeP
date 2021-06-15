@@ -8,8 +8,8 @@
     <TemplateGuid>{98C37F10-6541-44BE-B1E6-7EB3EB8C08F1}</TemplateGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Integrazie.Client.UWP</RootNamespace>
-    <AssemblyName>Integrazie.Client.UWP</AssemblyName>
+    <RootNamespace>CrossMessenger.Client.UWP</RootNamespace>
+    <AssemblyName>CrossMessenger.Client.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
@@ -163,7 +163,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarIntegrazieClientUWPHideInfoBar="True" />
+      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarCrossMessengerClientUWPHideInfoBar="True" XamarinHotReloadXFormsNugetUpgradeInfoBarIntegrazieClientUWPHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

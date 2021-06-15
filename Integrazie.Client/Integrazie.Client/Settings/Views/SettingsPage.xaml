@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossMessenger.Client.Settings.Views.SettingsPage"
+			 xmlns:vm="clr-namespace:CrossMessenger.Client.Settings.ViewModels"
+			 xmlns:local="clr-namespace:CrossMessenger.Client.Settings.Views"
+			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+			 x:DataType="vm:SettingsPageViewModel"
+			 prism:ViewModelLocator.AutowireViewModel="True"
+			 xmlns:xct="http://prismlibrary.com" xmlns:models="clr-namespace:CrossMessenger.Client.Settings.Models">
+
+	<ContentPage.Behaviors>
+		<xct:EventToCommandBehavior EventName="Appearing" Command="{Binding InitCommand}" />
+	</ContentPage.Behaviors>
+
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Label Text="Включение и отключение сервисов" />
+			<Label Grid.Row="1" Text="Перезапустите приложение чтобы изменения вступили в силу" IsVisible="{Binding Changed}"/>
+
+			<ListView Grid.Row="2" ItemsSource="{Binding SettingsCollection}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell >
+							<ViewCell.View>
+								<StackLayout Orientation="Horizontal" Padding="5" Spacing="2">
+									<Label x:DataType="models:SettingModel"
+										   Text="{Binding Name}" WidthRequest="200" />
+									<CheckBox x:DataType="models:SettingModel"
+											  IsChecked="{Binding IsChecked}"/>
+
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

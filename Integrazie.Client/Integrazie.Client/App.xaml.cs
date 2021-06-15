@@ -1,8 +1,4 @@
-﻿using CrossMessenger.Client.Models;
-using CrossMessenger.Client.Modules.Telegram;
-using CrossMessenger.Client.Services;
-using CrossMessenger.Client.ViewModels;
-using CrossMessenger.Client.Views;
+﻿using CrossMessenger.Client.Modules.Telegram;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -22,19 +18,16 @@ namespace CrossMessenger.Client
 			MainPage = new AppShell();
 
 			DependencyService.RegisterSingleton(this.NavigationService);
-
-			NavigationService.NavigateAsync(nameof(AboutPage));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="containerRegistry"></param>
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			// DependencyService.Register<ITgRepository, TgRepository>();
-			DependencyService.Register<IDataStore<Item>, MockDataStore>();
-
-			containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
-			containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
-			containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
-
+			containerRegistry.RegisterForNavigation<Settings.Views.SettingsPage, Settings.ViewModels.SettingsPageViewModel>();
+			containerRegistry.RegisterForNavigation<Messeging.Views.DialogsViewPage, Messeging.ViewModels.DialogsViewPageViewModel>();
 		}
 
 		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -44,17 +37,5 @@ namespace CrossMessenger.Client
 		}
 
 		#endregion Prism
-
-		protected override void OnStart()
-		{
-		}
-
-		protected override void OnSleep()
-		{
-		}
-
-		protected override void OnResume()
-		{
-		}
 	}
 }

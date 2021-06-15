@@ -2,8 +2,9 @@
 
 namespace CrossMessenger.Client.Modules.Telegram.Models
 {
-	public class TgPhoneLoginRequest : ILogInRequest
+	public class WaitCode : ILogInResponse
 	{
-		public string Phone { get; set; }
+
 	}
+
 }

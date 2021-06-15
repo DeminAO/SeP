@@ -1,5 +1,4 @@
-﻿using CrossMessenger.Client.Infrastructure.Interfaces;
-using CrossMessenger.Client.Infrastructure.Models.ResultCore;
+﻿using CrossMessenger.Client.Infrastructure.Models.ResultCore;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -12,49 +11,9 @@ namespace CrossMessenger.Client.Modules.Telegram
 	using Org.BouncyCastle.Bcpg;
 	using CrossMessenger.Client.Modules.Telegram.Models;
 	using System.Runtime.CompilerServices;
-
 	public class TgRepository : ITgRepository
 	{
 		private TUser _user;
-
-		private string phone;
-
-		private OpenTl.Schema.Auth.ISentCode sentCode;
-
-		public async Task<Result<ILogInResponse>> LogInAsync(ILogInRequest logInRequest)
-		{
-			var _clientApi = await new TgClientRepository().GetClient();
-
-			if (logInRequest is TgPhoneLoginRequest request)
-			{
-				phone = request.Phone;
-				sentCode = await _clientApi.AuthService.SendCodeAsync(request.Phone).ConfigureAwait(false);
-
-				return Result<ILogInResponse>.GetSucceed(new WaitCode());
-			}
-
-			if (logInRequest is TgCodeLoginRequest codeRequest)
-			{
-				try
-				{
-					_user = await _clientApi.AuthService.SignInAsync(phone, sentCode, codeRequest.Code).ConfigureAwait(false);
-
-					_clientApi.UpdatesService.StartReceiveUpdates(TimeSpan.FromSeconds(1));
-
-					return Result<ILogInResponse>.GetSucceed(new SucceedLogin());
-				}
-				catch (CloudPasswordNeededException pe)
-				{
-					return Result<ILogInResponse>.GetFailure(pe.Message);
-				}
-				catch (PhoneCodeInvalidException)
-				{
-					return Result<ILogInResponse>.GetFailure("uncorrect code");
-				}
-			}
-
-			return Result<ILogInResponse>.GetFailure("unknown reqest");
-		}
 
 		public async Task<Result<IEnumerable<Infrastructure.Interfaces.IDialog>>> GetDialogsAsync()
 		{
@@ -67,8 +26,11 @@ namespace CrossMessenger.Client.Modules.Telegram
 					contacts.Contacts.Join(contacts.Users.OfType<TUser>(), x => x.UserId, x => x.Id, (c, u) => (c, u))
 					.Select(x => new TgDialogService
 					{
-						Id = x.c.UserId,
-						Name = x.u.Username
+						Identifier = new TgIdentifier
+						{
+							Name = x.u.Username,
+							Id = x.c.UserId
+						}
 					}));
 			}
 			catch (Exception e)
@@ -76,6 +38,21 @@ namespace CrossMessenger.Client.Modules.Telegram
 				return Result<IEnumerable<Infrastructure.Interfaces.IDialog>>
 					.GetFailure(e.GetBaseException().Message);
 			}
+		}
+
+		public Task<Result<IEnumerable<Infrastructure.Interfaces.IDialog>>> GetAsync()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<Result> RemoveAsync(Infrastructure.Interfaces.IDialog dialog)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<Result<Infrastructure.Interfaces.IDialog>> AddAsync()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

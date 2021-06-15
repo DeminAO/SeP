@@ -1,12 +1,11 @@
 ﻿using CrossMessenger.Client.Infrastructure.Models.ResultCore;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
-	public interface IDialog
+	public interface IAuthorizer
 	{
-		IIdentifier Identifier { get; }
-		Task<Result<ICollection<IMessage>>> GetAsync();
+		Task<Result<ILogOutResponse>> LogOut();
+		Task<Result<ILogInResponse>> LogInAsync(ILogInRequest logInRequest);
 	}
 }

@@ -7,7 +7,8 @@ namespace CrossMessenger.Client.Infrastructure.Interfaces
 {
 	public interface IMessenger
 	{
-		Task<Result<IEnumerable<IDialog>>> GetDialogsAsync();
-		Task<Result<ILogInResponse>> LogInAsync(ILogInRequest logInRequest);
+		Task<Result<IEnumerable<IDialog>>> GetAsync();
+		Task<Result> RemoveAsync(IDialog dialog);
+		Task<Result<IDialog>> AddAsync();
 	}
 }
