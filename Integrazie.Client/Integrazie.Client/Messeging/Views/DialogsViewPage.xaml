@@ -3,38 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossMessenger.Client.Messeging.Views.DialogsViewPage"
 			 xmlns:vm="clr-namespace:CrossMessenger.Client.Messeging.ViewModels"
-			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" x:DataType="vm:DialogsViewPageViewModel"
 			 prism:ViewModelLocator.AutowireViewModel="True" >
 
-	<!--<ContentPage.BindingContext>
-		<vm:DialogsViewPageViewModel />
-	</ContentPage.BindingContext>-->
-
 	<ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
+            ItemsSource="{Binding Contacts}"
             CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding .}" />
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<ViewCell x:DataType="vm:Contact">
+					<StackLayout Orientation="Vertical">
+						<Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" />
+
+						<CarouselView  ItemsSource="{Binding Images}" HorizontalOptions="StartAndExpand">
+							<CarouselView.ItemTemplate>
+								<DataTemplate>
+									<ImageCell ImageSource="{Binding .}"/>
+								</DataTemplate>
+							</CarouselView.ItemTemplate>
+						</CarouselView>
+						
+						<Label Text="{Binding LastMessage}" Style="{DynamicResource ListItemDetailTextStyle}"/>
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
 </ContentPage>

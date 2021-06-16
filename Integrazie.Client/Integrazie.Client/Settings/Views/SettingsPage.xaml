@@ -7,7 +7,8 @@
 			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
 			 x:DataType="vm:SettingsPageViewModel"
 			 prism:ViewModelLocator.AutowireViewModel="True"
-			 xmlns:xct="http://prismlibrary.com" xmlns:models="clr-namespace:CrossMessenger.Client.Settings.Models">
+			 xmlns:xct="http://prismlibrary.com"
+			 xmlns:models="clr-namespace:CrossMessenger.Client.Settings.Models">
 
 	<ContentPage.Behaviors>
 		<xct:EventToCommandBehavior EventName="Appearing" Command="{Binding InitCommand}" />
@@ -18,13 +19,25 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
+			
+			<StackLayout Orientation="Horizontal" Padding="5" Spacing="2" Margin="2">
+				<Label x:DataType="models:SettingModel"
+					   Text="Автоматически объединать контакты при авторизации"
+					   WidthRequest="200" />
+				<CheckBox x:DataType="models:SettingModel"
+						  IsChecked="False"/>
 
-			<Label Text="Включение и отключение сервисов" />
-			<Label Grid.Row="1" Text="Перезапустите приложение чтобы изменения вступили в силу" IsVisible="{Binding Changed}"/>
+			</StackLayout>
+			
+			<Label Grid.Row="1" Text="Включение и отключение сервисов" Margin="2"/>
+			<Label Grid.Row="2" Text="Перезапустите приложение чтобы изменения вступили в силу"
+				   IsVisible="{Binding Changed}"
+				   TextColor="LightPink"/>
 
-			<ListView Grid.Row="2" ItemsSource="{Binding SettingsCollection}">
+			<ListView Grid.Row="3" ItemsSource="{Binding SettingsCollection}">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell >
