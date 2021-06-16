@@ -13,19 +13,21 @@
 		<ListView.ItemTemplate>
 			<DataTemplate>
 				<ViewCell x:DataType="vm:Contact">
-					<StackLayout Orientation="Vertical">
-						<Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" />
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
 
-						<CarouselView  ItemsSource="{Binding Images}" HorizontalOptions="StartAndExpand">
-							<CarouselView.ItemTemplate>
-								<DataTemplate>
-									<ImageCell ImageSource="{Binding .}"/>
-								</DataTemplate>
-							</CarouselView.ItemTemplate>
-						</CarouselView>
-						
-						<Label Text="{Binding LastMessage}" Style="{DynamicResource ListItemDetailTextStyle}"/>
-					</StackLayout>
+						<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="tglogo.png" HeightRequest="50"/>
+						<Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}"/>
+						<Label Grid.Column="1" Grid.Row="1" Text="{Binding LastMessage}" Style="{DynamicResource ListItemDetailTextStyle}"/>
+					</Grid>
 				</ViewCell>
 			</DataTemplate>
 		</ListView.ItemTemplate>
