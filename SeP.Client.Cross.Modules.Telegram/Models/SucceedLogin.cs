@@ -2,5 +2,4 @@
 
 namespace CrossMessenger.Client.Modules.Telegram.Models
 {
-	public class SucceedLogin : ILogInResponse { }
 }

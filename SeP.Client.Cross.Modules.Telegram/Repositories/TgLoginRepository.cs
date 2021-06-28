@@ -10,8 +10,6 @@ namespace CrossMessenger.Client.Modules.Telegram
 {
 	public class TgLoginRepository : IAuthorizer
 	{
-		// private TUser _user;
-
 		OpenTl.ClientApi.IClientApi _clientApi;
 
 		private string phone;
@@ -34,7 +32,6 @@ namespace CrossMessenger.Client.Modules.Telegram
 			{
 				try
 				{
-					// _user =
 					await _clientApi.AuthService.SignInAsync(phone, sentCode, codeRequest.Code).ConfigureAwait(false);
 
 					_clientApi.UpdatesService.StartReceiveUpdates(TimeSpan.FromSeconds(1));

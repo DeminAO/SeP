@@ -8,7 +8,6 @@ namespace SeP.Client.Correspondences
 	{
 		public void OnInitialized(IContainerProvider containerProvider)
 		{
-			// throw new NotImplementedException();
 		}
 
 		public void RegisterTypes(IContainerRegistry container)

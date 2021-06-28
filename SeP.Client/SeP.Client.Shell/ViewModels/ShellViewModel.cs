@@ -7,13 +7,6 @@ namespace SeP.Client.Shell.ViewModels
 {
 	public class ShellViewModel : BaseViewModel
 	{
-		private string test = "testing string";
-		public string Test
-		{
-			get => test;
-			set => SetProperty(ref test, value);
-		}
-
 		public ICommand LoadedCommand { get; private set; }
 
 		public ShellViewModel()
@@ -31,8 +24,7 @@ namespace SeP.Client.Shell.ViewModels
 		private void Init()
 		{
 			RegionManager.RequestNavigate(RegionNames.LeftRegion, ViewNames.Correspondences);
-			RegionManager.RequestNavigate(RegionNames.GlobalRegion, ViewNames.Authority);
-			// init main region with messageBlock
+			// RegionManager.RequestNavigate(RegionNames.GlobalRegion, ViewNames.Authority);
 		}
 	}
 }

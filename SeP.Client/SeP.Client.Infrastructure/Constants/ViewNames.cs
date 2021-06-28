@@ -11,5 +11,6 @@
 
 		public const string VkAuthority = nameof(VkAuthority);
 		public const string TgAuthority = nameof(TgAuthority);
+		public const string FacebookAuthority = nameof(FacebookAuthority);
 	}
 }

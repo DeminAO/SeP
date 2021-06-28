@@ -8,6 +8,7 @@ namespace SeP.Client.Infrastructure.Enums
 	{
 		Empty,
 		VK,
-		Tg
+		Tg,
+		Fb,
 	}
 }

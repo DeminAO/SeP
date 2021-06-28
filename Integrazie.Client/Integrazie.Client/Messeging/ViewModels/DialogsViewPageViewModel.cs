@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace CrossMessenger.Client.Messeging.ViewModels
@@ -15,11 +16,11 @@ namespace CrossMessenger.Client.Messeging.ViewModels
 
 	public class DialogsViewPageViewModel : BindableBase
 	{
-		public List<Contact> Contacts { get; private set; }
+		public ObservableCollection<Contact> Contacts { get; private set; }
 
 		public DialogsViewPageViewModel()
 		{
-			Contacts = new List<Contact>
+			Contacts = new ObservableCollection<Contact>(new Contact[]
 			{
 				new Contact { Images =new List<MessengersTypes> { MessengersTypes.Telegram, MessengersTypes.Vk }, LastMessage = "Давай", Name = "Влад Иванов" },
 				new Contact { Images =new List<MessengersTypes> { MessengersTypes.Vk }, LastMessage = "Да так же", Name = "Юля Ростовская" },
@@ -57,7 +58,7 @@ namespace CrossMessenger.Client.Messeging.ViewModels
 				new Contact { Images =new List<MessengersTypes> { MessengersTypes.Vk }, LastMessage = "Ну ок)", Name = "Олег Демин" },
 				new Contact { Images =new List<MessengersTypes> { MessengersTypes.Vk }, LastMessage = "Ну ок)", Name = "Олег Демин" },
 				new Contact { Images =new List<MessengersTypes> { MessengersTypes.Vk }, LastMessage = "Ну ок)", Name = "Олег Демин" },
-			};
+			});
 		}
 	}
 }

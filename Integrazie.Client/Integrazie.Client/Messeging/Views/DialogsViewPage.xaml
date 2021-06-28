@@ -13,7 +13,7 @@
 		<ListView.ItemTemplate>
 			<DataTemplate>
 				<ViewCell x:DataType="vm:Contact">
-					<Grid>
+					<Grid Margin="5">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="Auto"/>
 							<RowDefinition Height="Auto"/>
@@ -24,7 +24,7 @@
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
 
-						<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="tglogo.png" HeightRequest="50"/>
+						<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding Path}" HeightRequest="50"/>
 						<Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}"/>
 						<Label Grid.Column="1" Grid.Row="1" Text="{Binding LastMessage}" Style="{DynamicResource ListItemDetailTextStyle}"/>
 					</Grid>

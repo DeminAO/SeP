@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic;
+
 using Prism.Ioc;
 using Prism.Modularity;
 using SeP.Client.Infrastructure.Constants;
