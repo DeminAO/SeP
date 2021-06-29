@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace CrossMessenger.Client
 {
-	public class ModuleInitializer : IModuleInitializer
+	public class ModuleInitializer : IModuleInitializer																	
 	{
 		private ISettingsStore settingsStore;
 		private IContainerProvider serviceLocator;
@@ -22,7 +22,6 @@ namespace CrossMessenger.Client
 			{
 				return;
 			}
-
 			if (serviceLocator.IsRegistered<IModule>(moduleInfo.ModuleType))
 			{
 				var module = this.serviceLocator.Resolve<IModule>(moduleInfo.ModuleType);

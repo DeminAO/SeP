@@ -1,4 +1,5 @@
-﻿using CrossMessenger.Client.Modules.Telegram;
+﻿using CrossMessenger.Client.Infrastructure.Interfaces.Services;
+//using CrossMessaging.Client.CryptoService;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -8,8 +9,6 @@ namespace CrossMessenger.Client
 {
 	public partial class App : Prism.Unity.PrismApplication
 	{
-		#region Prism  
-
 		public App(IPlatformInitializer platformInitializer = null)
 			: base(platformInitializer) { }
 
@@ -21,23 +20,13 @@ namespace CrossMessenger.Client
 			DependencyService.RegisterSingleton(this.NavigationService);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="containerRegistry"></param>
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
+			containerRegistry.Register<ISettingsStore, SettingsStore>();
+			// containerRegistry.Register<ICryptoService, CryptoService>();
 			containerRegistry.Register<IModuleInitializer, ModuleInitializer>();
 			containerRegistry.RegisterForNavigation<Settings.Views.SettingsPage, Settings.ViewModels.SettingsPageViewModel>();
 			containerRegistry.RegisterForNavigation<Messeging.Views.DialogsViewPage, Messeging.ViewModels.DialogsViewPageViewModel>();
 		}
-
-		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-		{
-			moduleCatalog.AddModule<TgModule>();
-			// base.ConfigureModuleCatalog(moduleCatalog);
-		}
-
-		#endregion Prism
 	}
 }

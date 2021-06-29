@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SeP.Core\SeP.Core.Helpers\SeP.Core.Helpers.csproj" />
     <ProjectReference Include="..\SeP.Client.Infrastructure\SeP.Client.Infrastructure.csproj" />
   </ItemGroup>
 

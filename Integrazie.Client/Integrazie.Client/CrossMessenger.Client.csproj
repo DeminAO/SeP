@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CrossMessaging.Client.CryptoService\CrossMessaging.Client.CryptoService.csproj" />
     <ProjectReference Include="..\..\SeP.Client.Cross.Modules.Telegram\CrossMessenger.Client.Modules.Telegram.csproj" />
   </ItemGroup>
 
